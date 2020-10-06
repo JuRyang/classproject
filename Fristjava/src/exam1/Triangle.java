@@ -29,7 +29,7 @@ public class Triangle {
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(StringTokenizer[] args) {
 		
 		Triangle t = new Triangle(); //with, higth,area, 인스턴스 생성?
 		

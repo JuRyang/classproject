@@ -27,7 +27,7 @@ public class FruitSeller {
 		num = money/APPLE_PRICE; //받은 돈/ 사과의 가격
 		//수익금 증가
 		myMoney = myMoney + money;
-		// 사과의 개수를 감소
+		// 사과의 개수를 감수
 		numofApple = numofApple - num;
 		
 		return num;
