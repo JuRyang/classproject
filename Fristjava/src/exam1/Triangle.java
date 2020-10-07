@@ -20,7 +20,7 @@ public class Triangle {
 
 	
 	// 삼각형의 넓이를 구하는 메서드 : 밑변 * 높이 / 2 => 결과는 실수 타입으로
-	float area() {
+	 float area() {                 //반환값이 없는 경우 리턴타입 대신 void를 사용한다.
 		float result = 0.0f; //초기화,		
 		result = width * hight /2;		
 		return result;
