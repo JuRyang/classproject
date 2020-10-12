@@ -71,13 +71,13 @@ public class Boy {
 		//“2차 게임에서 어린이 2는 어린이 1의 구슬 7개를 획득한다.” 
 		boy2.playWin(boy1, 7);
 		System.out.println("\n 2차게임 어린이2가 승리");
+		
 		boy1.showData();
 		boy2.showData();
 		
 		
 		//정보 출력
 		System.out.println("\n 결과");
-		
 		boy1.showData();
 		boy2.showData();
 		
