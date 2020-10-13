@@ -100,8 +100,8 @@ public class ArrayTest {
 	int temp=0; //각 변수의 값을 바꾸기 위한 임시변수
 	
 	for(int i=0; i<100; i++){
-		//임의의 index를 구한다.: 1~44
-		j=(int)(Math.random()*44)+1; //1~44
+		//임의의 index를 구한다.: 0~44
+		j=(int)(Math.random()*44)+1; //(0~44)+1
 		temp = ball[0];
 		ball[0] = ball[j];
 		ball[j] = temp;
