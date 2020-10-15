@@ -12,7 +12,7 @@ public class PhoneBookManager {
 	//Scanner sc;
 	
 	//초기화
-	PhoneBookManager() {
+	public PhoneBookManager() {
 		//phoneBook = new PhoneInfor[100]; //배열의 저장공간을 100개 생성
         this(100);	
 	}

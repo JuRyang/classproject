@@ -20,8 +20,8 @@ public class FruitSeller {
 	//변수: 인스턴스 변수, 멤버 변수 
 	//int apple_Price = 1000; //사과의 가격
 	final int APPLE_PRICE; //사과의 가격, 변경이 되지 않도록 상수로 등록
-	int numofApple;    // 사과의 보유 개수
-	int myMoney;        // 수익금액
+	private int numofApple;    // 사과의 보유 개수
+	private int myMoney;        // 수익금액
 	
 	// 2020.10.08 생성자 추가(생성자의 오버로딩)
 /*	FruitSeller(){ //기본 생성자		

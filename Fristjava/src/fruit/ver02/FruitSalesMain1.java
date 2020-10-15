@@ -20,6 +20,15 @@ public class FruitSalesMain1 {
 		FruitBuyer buyer = new FruitBuyer(10000,0);
 		
 		
+	/*	seller.myMoney+=500;
+		buyer.myMoney-=500;
+		
+		seller.numofApple-=20;
+		buyer.numOfapple+=20;   private을 부여했더니 오류 
+		*/
+		
+		
+		
 		//사과를 구매: 2000원 지불
 		buyer.buyApple(seller, 3000);
 		

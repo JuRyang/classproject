@@ -1,8 +1,10 @@
 package ver02;
 
 import java.util.Scanner;
+import ver03.*;
 
-import ver01.PhoneInfor;
+//import ver01.PhoneInfor;
+//import ver03.Util;
 
 public class PhoneBookMain {
 
@@ -11,6 +13,9 @@ public class PhoneBookMain {
 		
 		//사용자에게 데이터를 받는다.
 		Scanner s =new Scanner(System.in);
+		
+	//	Util.sc.nextLine(); //ver03에 있는 util 스캐너 불러옴,  import ver03.Util;
+		//new PhoneBookManager(); //ver03에 있는 생성자 불러옴, 불러올때  import ver03.*; 이렇게 해야 오류 안남(ver03에 있는 폴더를 사용하곘다)
 		
 		while(true) {
 			//인스턴스 생성을 위해서는 이름, 전화번호, 생일 데이터를 받는다.
