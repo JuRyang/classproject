@@ -8,9 +8,9 @@ public class CCC {
 		
 		AAA.n=0;
 		
-		AAA a = new AAA();
+	//	AAA a = new AAA();
 
-		a.num = 10;
+		//a.num = 10;
 	}
 
 }
