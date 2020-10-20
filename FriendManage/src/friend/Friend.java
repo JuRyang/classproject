@@ -1,6 +1,6 @@
 package friend;
 
-public class Friend {
+public  class Friend {
 	
 	private String name;              //친구이름
 	private String phoneNumber;       //전화번호  
@@ -41,6 +41,11 @@ public class Friend {
 	public void showBasicInfo() {
 		
 	}
+	
+/*	public abstract void showBaseicInfp();*/
+	
+	
+	
 	
 
 }
