@@ -39,6 +39,10 @@ public class CafePhoneInfor extends PhoneInfor {
 		System.out.println("닉네임:"+nickName);
 	}
 	
+	@Override  
+	public void showBasicInfo() {
+		super.showInfo();
+	}
 	
 
 	

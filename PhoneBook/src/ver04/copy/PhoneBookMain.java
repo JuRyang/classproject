@@ -10,11 +10,11 @@ public class PhoneBookMain {
 		
 		while(true) {
 			System.out.println("메뉴를 입력해주세요.==================");
-			System.out.println("1. 저장");
-			System.out.println("2. 검색");
-			System.out.println("3. 삭제");
-			System.out.println("4. 모든 정보 출력");
-			System.out.println("5. EXIT");
+			System.out.println(Menu.SAVE+". 저장");
+			System.out.println(Menu.SEARCH+". 검색");
+			System.out.println(Menu.DELECT+". 삭제");
+			System.out.println(Menu.ALLINFO+". 모든 정보 출력");
+			System.out.println(Menu.EXIT+". EXIT");
 			
 			System.out.println("\n>>");
 			
@@ -26,22 +26,22 @@ public class PhoneBookMain {
 		}
 
 			switch (select) {
-			case 1:
+			case Menu.SAVE:
 				manager.insertInfo();
 				break;
-			case 2:
+			case Menu.SEARCH:
 
 				manager.searchInfor();
 				break;
-			case 3:
+			case Menu.DELECT:
 				manager.deleteInfor();
 
 				break;
-			case 4:
+			case Menu.ALLINFO:
 				manager.showAllInfor();
 
 				break;
-			case 5:
+			case Menu.EXIT:
 				System.out.println("프로그램 종료");
 				break;
 			}

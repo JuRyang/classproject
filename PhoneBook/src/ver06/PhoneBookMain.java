@@ -13,10 +13,13 @@ public class PhoneBookMain {
 		PhoneBookrManager manager = PhoneBookrManager.getInstance();
 		
 		
-		int select =0;
-			
+		int select=0;
+		
+		
 		while(true) {
 			try {
+			
+				 
 			System.out.println("메뉴를 입력해주세요.==================");
 			System.out.println(Menu.INSERT+" 저장");
 			System.out.println(Menu.SEARCH+" 검색");
@@ -27,7 +30,7 @@ public class PhoneBookMain {
 			System.out.println("\n>>");
 			
 			 select = Util.sc.nextInt();
-			Util.sc.nextLine();
+			 Util.sc.nextLine();
 			
 		}catch(NumberFormatException e) {
 			if(!(select>0 && select <6)) 

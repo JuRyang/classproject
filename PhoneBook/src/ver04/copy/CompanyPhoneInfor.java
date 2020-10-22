@@ -29,6 +29,12 @@ public class CompanyPhoneInfor extends PhoneInfor {
 		super.showInfo();
 		System.out.println("회사:"+company);
 	}
+
+	@Override
+	public void showBasicInfo() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
