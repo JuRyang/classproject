@@ -1,4 +1,4 @@
-package ver06;
+package ver05.copy;
 
 public class UnivIPhonenfor extends PhoneInfor {
 

@@ -1,4 +1,4 @@
-package ver06;
+package ver05.copy;
 
 import ver03.Util;
 
@@ -52,7 +52,7 @@ public class PhoneBookrManager {
 	}
 	
 	System.out.println("어떤 정보를 입력하겠습니까?");
-//	System.out.println("1. 기본"); //추상클래스->인스턴스 생성불가
+	System.out.println("1. 기본"); //추상클래스->인스턴스 생성불가
 	System.out.println(Menu.UNIV+"1. 대학");
 	System.out.println(Menu.COM+"2. 회사");
 	System.out.println(Menu.CAFE+"3. 동호회");

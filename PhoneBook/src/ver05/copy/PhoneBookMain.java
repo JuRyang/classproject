@@ -1,7 +1,6 @@
-package ver06;
+package ver05.copy;
 
-
-import java.util.Scanner;
+import java.io.ObjectInputStream.GetField;
 
 import ver03.Util;
 
@@ -13,13 +12,8 @@ public class PhoneBookMain {
 		PhoneBookrManager manager = PhoneBookrManager.getInstance();
 		
 		
-		int select=0;
-		
 		
 		while(true) {
-			try {
-			
-				 
 			System.out.println("메뉴를 입력해주세요.==================");
 			System.out.println(Menu.INSERT+" 저장");
 			System.out.println(Menu.SEARCH+" 검색");
@@ -29,16 +23,14 @@ public class PhoneBookMain {
 			
 			System.out.println("\n>>");
 			
-			 select = Util.sc.nextInt();
-			 Util.sc.nextLine();
+			int select = Util.sc.nextInt();
 			
-		}catch(NumberFormatException e) {
-			if(!(select>0 && select <6)) 
-				System.out.println("메뉴의 선택이 올바르지 않습니다.\n 다시 선택해주세요");
-			
+			if(!(select>0 && select <6)) {
+				System.out.println("메뉴의 선택이바르지 않습니다.\n 다시 선택해주세요");
+				continue;
+		}
 
-			
-				switch (select) {
+			switch (select) {
 			case Menu.INSERT:
 				manager.insertInfo();
 				break;
@@ -56,29 +48,10 @@ public class PhoneBookMain {
 				break;
 			case Menu.EXIT:
 				System.out.println("프로그램 종료");
-				
-				continue;
-				
-				}
-			
 				break;
 			}
-			
-			
-			try {
-				System.out.println("정수를 입력해주세요"+select);
-		
-			} catch (NumberFormatException e) {
-				System.out.println("숫자가 아닙니다.");
-				System.out.println(e.getMessage());
-			}
-			
-			
-			
 
-		
 		}
-
-	}
+		}
 
 }

@@ -1,4 +1,4 @@
-package ver06;
+package ver05.copy;
 
 public  abstract class PhoneInfor implements Infor{ //extend object(기본)
 	

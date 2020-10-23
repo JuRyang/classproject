@@ -1,4 +1,4 @@
-package ver06;
+package ver05.copy;
 
 public interface Menu {
 	
@@ -17,5 +17,3 @@ public interface Menu {
 	
 
 }
-
-
