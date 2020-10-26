@@ -1,20 +1,31 @@
-package ver05.copy;
+package ver06;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
 
 import ver03.Util;
 
-public class PhoneBookrManager {
+public class PhoneBookrManager implements Util{
 
 	// 전화번호 정보를 저장할 배열을 가지고,
 	// 배열을 이용한 정보의 저장, 삭제, 출력을 하는 기능
 
 	// 배열 선언: 상속관계이기 때문에 PhoneInfor타입으로 선언
-	private PhoneInfor[] pBook; // 전화번호 정보를 저장할 배열
-	private int cnt; // 배열에 저장된요소의 개수,배열의 index
+//	private PhoneInfor[] pBook; // 전화번호 정보를 저장할 배열
+//	private int cnt; // 배열에 저장된요소의 개수,배열의 index
+	
+	//배열을 이용해서 저장하는 방식을 ArrayList<T> 컬랙션을 이용해서 구현해 보자
+	List<PhoneInfor> pBook; 
+	
 
 	// 생성자: 싱글톤 처리 -> 외부에서 인스턴스 생성을 못하도록 금지
 	private PhoneBookrManager(int num) {
-		pBook = new PhoneInfor[num]; // 생성자의 매개변수의 인자를 전달받아 배열 생성
-		cnt = 0;
+		//pBook = new PhoneInfor[num]; // 생성자의 매개변수의 인자를 전달받아 배열 생성
+		//cnt = 0;
+		
+		// List<PhoneInfor> 초기화 해줘야 함
+		pBook = new ArrayList<PhoneInfor>();  //()생성자 호출
 	}
 	
 	//내부에서 인스턴스 생성 (위에 private 외부에서 생성 금지했기때문에)
@@ -34,45 +45,69 @@ public class PhoneBookrManager {
 	// 입력의 구분 -> 구분에 따라 인스턴스 생성도 구분 ->addInfor()메서드를 이용해서 정보 저장
 
 	// 배열에 전화번호 정보를 저장하는 메서드 ****(이거 잘 모름 한번 더 보기)
-	void addInfor(PhoneInfor info) {
-		pBook[cnt++] = info;
+	private void addInfor(PhoneInfor info) {
+		//pBook[cnt++] = info;
+		
+		//List에 정보저장
+		pBook.add(info);
 	}
 
 	// 전화번호 정보를 인스턴스 생성하고 배열에 저장
-	void insertInfo() {
+	public void insertInfo() {
 		
 		//100개 입력 0<index <=99, dnt =100
 		//pBook[100] -> 오류
 		//배열의 개수와 입력된 요소의 개수를 비교
 		
-	if(pBook.length == cnt) {
+/*	if(pBook.length == cnt) {
 		System.out.println("더이상 정보를 저장할 수 없습니다.");
 		System.out.println("일부 정보를 삭제하고 저장 공간을 확보해주세요");
 	
-	}
-	
+	}*/
+		// List는 저장공간이 부족하면 저장공간을 확장한다.(대신 확장하는데 시간이 걸림)
+		//공간이 부족하면 새로운 배열을 생성하여 기존에 있는 배열을 저장하여 시간이 걸림 (List단점)
+		
+		int select =0;
+		
+	while(true) {
 	System.out.println("어떤 정보를 입력하겠습니까?");
-	System.out.println("1. 기본"); //추상클래스->인스턴스 생성불가
-	System.out.println(Menu.UNIV+"1. 대학");
-	System.out.println(Menu.COM+"2. 회사");
-	System.out.println(Menu.CAFE+"3. 동호회");
+//	System.out.println("1. 기본"); //추상클래스->인스턴스 생성불가
+	System.out.println(Menu.UNIV+". 대학");
+	System.out.println(Menu.COM+". 회사");
+	System.out.println(Menu.CAFE+". 동호회");
 
-	int select = Util.sc.nextInt();
+	
+	
+try {
+	 select = SC.nextInt();
 
-	Util.sc.nextLine();
 
-	if(!(select>0&&select<4))
-	{
-		System.out.println("메뉴 선택이 올바르지 않습니다.");
-		System.out.println("초기메뉴로 돌아갑니다.");
-		return;
+	if(!(select>0&&select<4)){
+		//System.out.println("메뉴 선택이 올바르지 않습니다.");
+		//System.out.println("초기메뉴로 돌아갑니다.");
+		//return;
+		BadInputException e =new BadInputException(String.valueOf(select));
+		throw e;
 	}
-
-	System.out.println("정보 입력을 시작합니다.");System.out.println("이름>>");
-	String name = Util.sc.nextLine();System.out.println("전화번호>>");
-	String pNum = Util.sc.nextLine();System.out.println("주소>>");
-	String addr = Util.sc.nextLine();System.out.println("이메일>>");
-	String email = Util.sc.nextLine();
+	}catch(InputMismatchException | BadInputException e){
+		System.out.println("잘못된 메뉴 입력입니다. 다시 선택해주세요");
+		SC.nextLine();
+		continue;
+		
+	}
+break;
+	}
+	SC.nextInt();
+	
+	System.out.println("정보 입력을 시작합니다.");
+	System.out.println("이름 >> ");
+	String name = SC.nextLine();
+	System.out.println("전화번호 >> ");
+	String pNum = SC.nextLine();
+	System.out.println("주소 >> ");
+	String addr = SC.nextLine();
+	System.out.println("이메일 >> ");
+	String email = SC.nextLine();
 
 	
 	switch(select)
@@ -85,16 +120,17 @@ public class PhoneBookrManager {
 			//추가 정보 받고 -> 인스턴스 생성 -> 배열에 저장
 			//전공,학년
 			System.out.println("전공>>");
-			String major = Util.sc.nextLine();
+			String major = SC.nextLine();
 			System.out.println("학년>>");
-			int grade = Util.sc.nextInt();
+			int grade = SC.nextInt();
+			
 			addInfor(new UnivIPhonenfor(name, pNum, addr, email, major, grade));
 			
 			break;
 		case Menu.COM:
 			//추가 정보 받고 -> 인스턴스 생성 -> 배열에 저장
 			System.out.println("회사이름>>");
-			String company = Util.sc.nextLine();
+			String company = SC.nextLine();
 			
 			addInfor(new CompanyPhoneInfor(name, pNum, addr, email, company));
 			break;
@@ -102,9 +138,9 @@ public class PhoneBookrManager {
 			//추가 정보 받고 -> 인스턴스 생성 -> 배열에 저장
 			//동호회 이름, 닉네임
 			System.out.println("동호회 이름>>");
-			String cafeName=Util.sc.nextLine();
+			String cafeName=SC.nextLine();
 			System.out.println("닉네임>>");
-			String nickName=Util.sc.nextLine();
+			String nickName=SC.nextLine();
 			
 			addInfor(new CafePhoneInfor(name, pNum, addr, email, cafeName, nickName));
 			break;
@@ -112,18 +148,20 @@ public class PhoneBookrManager {
 			
 		}
 
-	System.out.println("입력하신 정보가 저장되었습니다.(저장개수:+cnt)");
+	System.out.println("입력하신 정보가 저장되었습니다.(저장개수:+pBook.size()+)");
 
 }
 	
 
 	
 	// 정보 검색
+    //배열의  index를 찾는 메서드
+	//List의 index를 찾기
 		private int searchIndex(String name){		
 			int index = -1; // 정보가 없을 때
-			for (int i = 0; i < cnt; i++) {
+			for (int i = 0; i < pBook.size(); i++) {
 				// 이름으로 비교
-				if (pBook[i].getName().equals(name)) {
+				if (pBook.get(i).getName().equals(name)) { //pBook.get(i) List의 요소 참조
 					index = i;
 				}
 			}
@@ -132,14 +170,14 @@ public class PhoneBookrManager {
 
 		// 해당index의 참조변수로 정보 출력:사용자가 입력한 이름으로 검색
 		public void searchInfor() {
-			if (cnt ==0) {
+			if (pBook.size() ==0) {
 				System.out.println("입력된 정보가 없습니다.");
 				return;
 			}
 			
-			Util.sc.hasNextLine();
+			SC.nextLine();
 			System.out.println("검색하실 이름을 입력해주세요");
-			String name = Util.sc.nextLine();
+			String name = SC.nextLine();
 				
 				int index = searchIndex(name);
 			
@@ -148,7 +186,7 @@ public class PhoneBookrManager {
 				System.out.println("메뉴로 돌아갑니다.");
 			}else {
 				System.out.println("검색 결과 =============");
-				pBook[index].showInfo();
+				pBook.get(index).showInfo(); //
 			}
 			
 		}
@@ -156,15 +194,15 @@ public class PhoneBookrManager {
 			// 사용자에게 이름을 입력 받고 이름으로 검색 한 후 정보 삭제
 				public void deleteInfor() {
 
-					if(cnt==0) {
+					if(pBook.size()==0) {
 						System.out.println("삭제할 정보가 없습니다.");
 						return;
 					}
 
-					Util.sc.nextLine();
+					SC.nextLine();
 
 					System.out.println("삭제하고자 하는 정보의 이름을 입력해주세요. ");
-					String name = Util.sc.nextLine();
+					String name = SC.nextLine();
 
 					int index = searchIndex(name);
 
@@ -173,10 +211,12 @@ public class PhoneBookrManager {
 						System.out.println("메뉴로 이동합니다.");
 					} else {
 						// 배열의 요소를 왼쪾으로 시프트 
-						for(int i=index; i<cnt-1; i++) {
+					/*	for(int i=index; i<cnt-1; i++) {
 							pBook[i]=pBook[i+1];
 						}
-						cnt--; // 저장된 개수를 감소
+						cnt--; */// 저장된 개수를 감소
+						//List에서 삭제는 인덱스의 시프트로 이루어짐
+						pBook.remove(index);
 						System.out.println("요청신 이름의 정보를 삭제했습니다.");
 					}
 
@@ -187,14 +227,14 @@ public class PhoneBookrManager {
 				// 전체 정보를 출력하는 메서드
 				public void showAllInfor() {
 
-					if(cnt==0) {
+					if(pBook.size()==0) {
 						System.out.println("입력된 정보가 없습니다.");
 						return;
 					}
 
 					System.out.println("전체 정보를출력 합니다. ======================");
-					for(int i=0; i<cnt ; i++) {
-						pBook[i].showInfo();
+					for(int i=0; i<pBook.size() ; i++) {
+						pBook.get(i).showInfo();
 						System.out.println("--------------------");
 					}
 				}

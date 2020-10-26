@@ -1,6 +1,6 @@
 package ver03;
 
-import java.util.Scanner;
+import java.util.SCanner;
 
 public class PhoneBookManager {
 	
@@ -9,7 +9,7 @@ public class PhoneBookManager {
 	final PhoneInfor[] phoneBook;  //정보 저장을 위한 배열선언.
 	int cnt;  //저장된 정보의 개수: 반복의 횟수 사용, 배열에 새로운 데이터 입력시 index로 사용
 	
-	//Scanner sc;
+	//SCanner SC;
 	
 	//초기화
 	public PhoneBookManager() {
@@ -19,7 +19,7 @@ public class PhoneBookManager {
 	//생성자의 오버로딩
 	PhoneBookManager(int size) {
 		phoneBook= new PhoneInfor[size];
-		//sc =new Scanner(System.in);
+		//SC =new SCanner(System.in);
 	}
 	
 	
@@ -34,15 +34,15 @@ public class PhoneBookManager {
 		
 		//이름 입력받기
 		System.out.println("이름을 입력해주세요:");
-		String name = Util.sc.nextLine();
+		String name = Util.SC.nextLine();
 		
 		//전화번호 받기
 		System.out.println("전화번호를 입력해주세요:");
-		String pNum = Util.sc.nextLine();
+		String pNum = Util.SC.nextLine();
 		
 		//생일받기
 		System.out.println("생일정보를 입력해주세요:");
-		String birthday= Util.sc.nextLine().trim();
+		String birthday= Util.SC.nextLine().trim();
 		
 		//배열에 저장하기위한 인스턴스의 참조변수 선언
 		PhoneInfor infor = null;
@@ -78,7 +78,7 @@ public class PhoneBookManager {
 		//찾고자 하는 이름을 받는다.
 		System.out.println("정보 검색을 시작합니다.");
 		System.out.println("찾고자 하는 이름을 입력해주세요.:");
-		String name =Util.sc.nextLine();
+		String name =Util.SC.nextLine();
 		
 		//이름을 요소 index 검색
 		//int index = -1; //찾고자 하는 정보가 존재하지않다는걸 알려주기 위해 -1 (배열에 인덱스는 -값이 있을 수 없음)
@@ -134,7 +134,7 @@ public class PhoneBookManager {
 		
 		System.out.println("정보 삭제를 진행합니다.");
 		System.out.println("삭제 하고자 하는 정보의 이름을 입력해주세요.");
-		String name =Util.sc.nextLine();
+		String name =Util.SC.nextLine();
 		
 		//이름을 요소 index 검색
 				int index = -1; //찾고자 하는 정보가 존재하지않다는걸 알려주기 위해 -1 (배열에 인덱스는 -값이 있을 수 없음)

@@ -1,12 +1,13 @@
 package ver03;
 
+
 import java.util.Scanner;
 
-public class Util {
+public interface Util {
 	
-
-	public static Scanner sc = new Scanner(System.in);
-	//
+//public class Util
+	 Scanner SC = new Scanner(System.in);
+	//public static final Scanner SC
 
 
 }

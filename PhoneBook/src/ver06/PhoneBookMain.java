@@ -1,16 +1,16 @@
-package ver05.copy;
+package ver06;
 
-import java.io.ObjectInputStream.GetField;
+
+import java.util.InputMismatchException;
 
 import ver03.Util;
 
-public class PhoneBookMain {
+public class PhoneBookMain implements Util{
 
 	public static void main(String[] args) {
 		
 		//PhoneBookrManager manager = new PhoneBookrManager(100);
 		PhoneBookrManager manager = PhoneBookrManager.getInstance();
-		
 		
 		
 		while(true) {
@@ -23,32 +23,49 @@ public class PhoneBookMain {
 			
 			System.out.println("\n>>");
 			
-			int select = Util.sc.nextInt();
+			int select = 0;
+			
+			try {
+			 select =SC.nextInt();
+			
 			
 			if(!(select>0 && select <6)) {
-				System.out.println("메뉴의 선택이바르지 않습니다.\n 다시 선택해주세요");
-				continue;
+			//	System.out.println("메뉴의 선택이 올바르지 않습니다.\n 다시 선택해주세요");
+				//Exception e = new Exception("잘못된 메뉴 입력");
+				BadInputException e = new BadInputException(String.valueOf(select));
+				throw e;
 		}
-
+			}catch(InputMismatchException  | BadInputException e) {
+				System.out.println("메뉴 입력이 잘못되었습니다.");
+				SC.nextLine();
+				continue;
+				
+			}catch(Exception e1) {
+				System.out.println("메뉴 입력이 잘못되었습니다.");
+				SC.nextLine();
+				continue;
+			}
+			
 			switch (select) {
 			case Menu.INSERT:
 				manager.insertInfo();
 				break;
 			case Menu.SEARCH:
-
+			
 				manager.searchInfor();
 				break;
+				
 			case Menu.DELECTE:
 				manager.deleteInfor();
-
 				break;
+				
 			case Menu.DISPLAY_ALL:
 				manager.showAllInfor();
-
 				break;
+				
 			case Menu.EXIT:
 				System.out.println("프로그램 종료");
-				break;
+				return;
 			}
 
 		}
