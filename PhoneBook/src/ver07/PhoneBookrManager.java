@@ -1,5 +1,12 @@
-package ver06;
+package ver07;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -26,10 +33,12 @@ public class PhoneBookrManager implements Util{
 		
 		// List<PhoneInfor> 초기화 해줘야 함
 		pBook = new ArrayList<PhoneInfor>();  //()생성자 호출
+		//파일에서 인스턴스을 로드 
+		load(); //밑에서 만들어진 메서드를 가져오기 때문에 ??
 	}
 	
 	//내부에서 인스턴스 생성 (위에 private 외부에서 생성 금지했기때문에)
-	private static PhoneBookrManager manager = new PhoneBookrManager(100);
+	private static PhoneBookrManager manager = new PhoneBookrManager(100);   //여기 까지 변수 생성 메서드 메모리에 저장됨
 	
 	//외부에서 참조변수를 받을 수 있는 메서드
 	public static PhoneBookrManager getInstance() {
@@ -239,10 +248,64 @@ break;
 					}
 				}
 
+				//List:pBook 에 저장되어 있는 인스턴스들을 저장
+				//pBook 일괄처리 할 수 있음
+				public void save() throws FileNotFoundException, IOException {
+					
+					//저장할 파일이 사이즈가 있는지 확인
+					if(pBook.size()==0) {
+						System.out.println("저장된 데이터가 없어 파일의 저장이 되지 않습니다.");
+						return;
+					}
+					
+					//인스턴스를 저장할 수 있는 출력 스트림 생성 필요   , 파일단위로 저장하기로 했기때문에 FileOutputStream
+					try {
+					ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Phonebook.ser"));
+	//				for(PhoneInfor pi : pBook) {
+	//					out.writeObject(pi);
+	//				}
+					out.writeObject(pBook);	
+					out.close();
+					System.out.println("저장되었습니다.(Phonebook.ser)");
+					}catch(IOException e){
+						System.out.println("저장하는 과정에 오류가 발생했습니다.("+e.getMessage()+") \n다시 시도해주세요");
+						                                           //"+e.getMessage()+" 오류메세지
+					}
+				}
+				
+				//프로그램으로 파일의 저장 데이터를 로드
+				void load() {
+					//파일이 존재여부 확인:File클래스를 이용해서 확인
+					File file = new File("phonebook.ser");
+					if(!file.exists()) { //file.exists 존재여부
+						System.out.println("저장된 파일이 존재하지 않습니다. 파일 저장 후 Load가 됩니다.");
+						return;
+					}
+					
+					//파일에 있는 데이터를 메모리에 저장: pBook에 저장
+					//파일의 데이터를 읽을 수 있는 스트림 생성
+					try {
+					ObjectInputStream in = new ObjectInputStream(new FileInputStream("Phonebook.ser"));
+	//				while(true) {
+	//				     Object obj=in.readObject();
+					     
+	//				     if(obj == null) {
+	//				    	 break;
+	//				     }
+	//				     pBook.add((PhoneInfor)obj);
+	//				}
+					pBook=(List<PhoneInfor>) in.readObject();
+					System.out.println("데이터 로드 완료");
+				}catch(IOException e) {
+				//	System.out.println("데이터를 로드하는 과정에 오류가 발생했습니다.");
+				//	e.printStackTrace();
+				}catch(ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 
 			}
 
-	
+}
 	
 	
 	
