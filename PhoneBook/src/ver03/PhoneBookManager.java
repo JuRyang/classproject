@@ -1,6 +1,6 @@
 package ver03;
 
-import java.util.SCanner;
+
 
 public class PhoneBookManager {
 	

@@ -9,7 +9,7 @@ public class PhoneBookMain {
 		System.out.println("현재 저장된 정보의 개수:"+manager.cnt);
 		System.out.println("저장이 가능한 정보의 총 개수는:"+manager.phoneBook.length);
 		
-		//Scanner  sc =new Scanner(System.in);
+		//SCanner  SC =new SCanner(System.in);
 		
 		while(true) {
 			
@@ -22,7 +22,7 @@ public class PhoneBookMain {
 			System.out.println(" 5. 프로그램 종료");
 			System.out.println("==============================");
 			
-			char insertMenu =Util.sc.nextLine().charAt(0);  //이렇게 해야 오류가 잘 안남
+			char insertMenu =Util.SC.nextLine().charAt(0);  //이렇게 해야 오류가 잘 안남
 			                   //유틸클래스에 스캐너 
 			switch(insertMenu) {
 			case'1':
