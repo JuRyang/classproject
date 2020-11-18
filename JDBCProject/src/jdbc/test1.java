@@ -67,7 +67,7 @@ public class test1 {
 				System.out.println("데이터가 입력되지않았음");
 			}
 			
-			   System.out.println("검색하고자 하는 사원 이름을 입력해주세요.");
+			   System.out.println("모든 사원 정보 출력.");
 			   String searchEname = sc.nextLine();
 			   
 			   //정보 리스트
@@ -91,8 +91,6 @@ public class test1 {
 			   }
 			   
 			   
-
-			   
 			rs.close();
 			pstmt.close();
 			conn.close();
@@ -105,6 +103,8 @@ public class test1 {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		
+			
+			
 		
 	}
 }
