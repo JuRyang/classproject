@@ -2,6 +2,7 @@ package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,105 +11,101 @@ import java.util.Scanner;
 public class test1 {
 
 	public static void main(String[] args) {
-Scanner sc = new Scanner (System.in);
 		
+		Scanner sc = new Scanner (System.in);
 		Connection conn = null;
 		
-	
-		//1.드라이버 로드
-			try {
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				System.out.println("Oracle Driver Load !!!");
-				
-				//2.DB 연결  localhost == 127.0.0.1
-				String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
-				String user = "scott";
-				String password = "tiger";
-				
-				conn = DriverManager.getConnection(jdbcUrl,user,password);
-				System.out.println("데이터 접속");
-				
-				//3. Statement 인스턴스 생성
-			    Statement stmt = conn.createStatement();
-			    
-			    System.out.println("새로운 사원을 입력해주세요");
-			    System.out.println("EMPNO:");
-			    int newempno = sc.nextInt();
-			    System.out.println("NAME:");
-			    String newename = sc.nextLine();
-			    System.out.println("JOB:");
-			    String newjob = sc.nextLine();
-			    System.out.println("MGR:");
-			    String newmgr = sc.nextLine();
-			    System.out.println("HIREDATE:");
-			    String newhire = sc.nextLine();
-			    System.out.println("SAL:");
-			    int newsal = sc.nextInt();
-			    System.out.println("COMM:");
-			    int newcom = sc.nextInt();
-			    
-			   
-		    
-			    //입력 : insert
-			    String sqlInsert = "insert into emp values ('"+newempno+"', '"+newename+"','"+newjob+"','"+newmgr+"','"+newhire+"','"+newsal+"','"+newcom+"')";
+		try {
+			//1.드라이브 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("Oracle Driver Load !!!");
+			
+			//2.DB연결 
+			String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String password = "tiger";
+			
+			conn = DriverManager.getConnection(jdbcUrl,user,password);
+			System.out.println("데이터 접속");
+			
+			// 3.Statement 인스턴스 생성: SQL명령 저장 후 접속된 DBMS 서버에 전달
+			Statement stmt = conn.createStatement();
 		
-			    int resultCnt = stmt.executeUpdate(sqlInsert);
-			    
-			    if(resultCnt>0) {
-			    	System.out.println("데이터가 정상적으로 입력되었습니다.");
-			    }
-			    
-			    //4.SQL 실행: 부서리스트 출력
-			    String sql = "select * from emp order by empno";
-			    
-			    ResultSet rs = stmt.executeQuery(sql);
-				
-			    //5. ResultSet을 이용해서 결과 출력
-				while(rs.next()) {
-					int empno = rs.getInt("empno");
-					String ename = rs.getString("ename");
-					String job = rs.getString("job");
-					String mgr = rs.getString("mgr");
-					String hiredate = rs.getString("hiredate");
-					int sal = rs.getInt("sal");
-					int comm = rs.getInt("comm");
-					
 
-					
-				
-				
-				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				//6.close
-				rs.close();
-				stmt.close();
-				conn.close();
-				
-				
-				
-				
-				
-				
+		    System.out.printf("EMPNO:");
+		    int empno = sc.nextInt();
+		    sc.nextLine();
+		    System.out.println("ENAME:");
+		    String ename = sc.nextLine();
+		    System.out.println("JOB:");
+		    String job = sc.nextLine();
+		    System.out.println("MGR:");
+		    String mgr = sc.nextLine();
+		    System.out.println("HIREDATE:");
+		    String hiredate = sc.nextLine();
+		    System.out.println("SAL:");
+		    int sal = sc.nextInt();
+		    System.out.println("COMM:");
+		    int comm = sc.nextInt();
+			
+			 //PreparedStatement 인스턴스 생성: sql 먼저 등록하고 사용한다.
+			String sqlInsert = "insert into emp(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM ) values(?,?,?,?,?,?,?)";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sqlInsert);
+			pstmt.setInt(1,empno);
+			pstmt.setString(2,ename);
+			pstmt.setString(3,job);
+			pstmt.setString(4,mgr);
+			pstmt.setString(5,hiredate);
+			pstmt.setInt(6,sal);
+			pstmt.setInt(7,comm);
+			
+			int resultCnt = pstmt.executeUpdate();
+			if(resultCnt>0) {
+				System.out.println("데이터가 정상적으로 입력");
+			}else {
+				System.out.println("데이터가 입력되지않았음");
+			}
+			
+			   System.out.println("검색하고자 하는 사원 이름을 입력해주세요.");
+			   String searchEname = sc.nextLine();
+			   
+			   //정보 리스트
+			   String sqlSelect = "select * from emp ";
+			   pstmt = conn.prepareStatement(sqlSelect);
+			   
+			   ResultSet rs = pstmt.executeQuery();
+			   
+			   if(!rs.next()) {
+				   System.out.println("검색의 결과가 없습니다.");
+			   } else {
+				  do{
+					   System.out.print(rs.getInt(1)+"\t");
+					   System.out.print(rs.getString(2)+"\t");
+					   System.out.print(rs.getString(3)+"\n");
+					   System.out.print(rs.getString(4)+"\n");
+					   System.out.print(rs.getString(5)+"\n");
+					   System.out.print(rs.getInt(6)+"\t");
+					   System.out.print(rs.getInt(7)+"\t");
+				   }while (rs.next());
+			   }
+			   
+			   
 
-				
-			} catch (ClassNotFoundException  e) {
-				System.out.println("드라이버 로드 실패");
-						
-				
-				} catch (SQLException e) {
-					e.printStackTrace();
-				
-				
+			   
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Driver 로드 실패 ");
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		
 	}
-
 }
 }
