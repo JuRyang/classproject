@@ -13,7 +13,7 @@ create table phoneinfo_basic(
 ;
 desc phoneinfo_basic;
 
---제약조건 확인 user_constraints****
+--제약조건 확인 user_constraints****유저가 소유한 모든 제약조건을 볼 수 있다.
 desc user_constraints ;
 
 select constraint_name, constraint_type
@@ -134,3 +134,39 @@ where idx=1;
 --자식테이블의 행부터 삭제하고 부모테이블 행을 삭제 
 delete from phoneinfo_com where fr_ref=42;
 delete from phoneinfo_basic where idx =42;
+
+
+--3개 조인
+select *
+from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
+where pb.idx = pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
