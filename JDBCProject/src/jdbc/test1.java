@@ -28,8 +28,9 @@ public class test1 {
 			conn = DriverManager.getConnection(jdbcUrl,user,password);
 			System.out.println("데이터 접속");
 			
-			// 3.Statement 인스턴스 생성: SQL명령 저장 후 접속된 DBMS 서버에 전달
-			Statement stmt = conn.createStatement();
+		
+			
+
 		
 
 		    System.out.printf("EMPNO:");
@@ -51,7 +52,11 @@ public class test1 {
 			 //PreparedStatement 인스턴스 생성: sql 먼저 등록하고 사용한다.
 			String sqlInsert = "insert into emp(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM ) values(?,?,?,?,?,?,?)";
 			
+			// 3.Statement 인스턴스 생성: SQL명령 저장 후 접속된 DBMS 서버에 전달
+			Statement stmt = conn.createStatement();
 			PreparedStatement pstmt = conn.prepareStatement(sqlInsert);
+			
+			
 			pstmt.setInt(1,empno);
 			pstmt.setString(2,ename);
 			pstmt.setString(3,job);
@@ -60,26 +65,25 @@ public class test1 {
 			pstmt.setInt(6,sal);
 			pstmt.setInt(7,comm);
 			
-			int resultCnt = pstmt.executeUpdate();
-			if(resultCnt>0) {
-				System.out.println("데이터가 정상적으로 입력");
-			}else {
-				System.out.println("데이터가 입력되지않았음");
-			}
+		//	int reCnt = pstmt.executeUpdate();
+
+						
 			
+			//2 모든 사원 출력
 			   System.out.println("모든 사원 정보 출력.");
 			   String searchEname = sc.nextLine();
 			   
 			   //정보 리스트
-			   String sqlSelect = "select * from emp ";
+			   String sqlSelect = "select * from emp order by empno";
 			   pstmt = conn.prepareStatement(sqlSelect);
 			   
 			   ResultSet rs = pstmt.executeQuery();
 			   
-			   if(!rs.next()) {
-				   System.out.println("검색의 결과가 없습니다.");
-			   } else {
-				  do{
+//			   if(!rs.next()) {
+//				   System.out.println("검색의 결과가 없습니다.");
+//			   } else {
+//				  do{
+			   while(rs.next()) {
 					   System.out.print(rs.getInt(1)+"\t");
 					   System.out.print(rs.getString(2)+"\t");
 					   System.out.print(rs.getString(3)+"\n");
@@ -87,8 +91,56 @@ public class test1 {
 					   System.out.print(rs.getString(5)+"\n");
 					   System.out.print(rs.getInt(6)+"\t");
 					   System.out.print(rs.getInt(7)+"\t");
-				   }while (rs.next());
+				   //}while (rs.next());
 			   }
+			   
+			   
+			   
+			   //3. EMP 테이블에 서 “SCOTT” 사원의 급여(sal) 정보를 1000으로 바꾸는 프로그램을 작성
+			   
+	
+				String update = "update emp set sal ='1000' where ename = 'SCOTT'";
+				
+				 stmt = conn.createStatement();
+				 stmt.executeUpdate(update);
+				 
+				 String sqlStr = "select * from emp";
+				 
+				 rs = stmt.executeQuery(sqlStr);
+				 System.out.println("변경 후");
+				 
+				 while(rs.next()) {
+					 System.out.print(rs.getInt(1)+"\t");
+					   System.out.print(rs.getString(2)+"\t");
+					   System.out.print(rs.getString(3)+"\n");
+					   System.out.print(rs.getString(4)+"\n");
+					   System.out.print(rs.getString(5)+"\n");
+					   System.out.print(rs.getInt(6)+"\t");
+					   System.out.print(rs.getInt(7)+"\t");
+				 }
+				 
+
+			   //4. EMP 테이블에 서 “SCOTT” 이름으로 검색한 결과를 출력하는 프로그램을 작성해보자.
+				 String sql ="select * from emp where name=?";
+			   pstmt =conn.prepareStatement(sql);
+			   
+			   pstmt.setNString(2, ename);
+			   rs=pstmt.executeQuery();
+			   
+		
+			   
+			   while(rs.next()) {
+				   
+			   }
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
 			   
 			   
 			rs.close();
