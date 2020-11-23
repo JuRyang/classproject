@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--- html문서임을 정의--->
+
+<html lang="ko">
+<!--html의 시작 작성하는 언어 정의-->
+
+<head>
+    <!--html 문서의 정보를 정의--->
+    <title>Frist HTML5</title>
+    <!--웹문서의 제목-->
+    <meta charset="utf-8">
+    <!--문서의 속성-->
+    <style>
+        h1 {
+            background-color: cornflowerblue;
+            color: bisque;
+        }
+
+        h2 {
+            background-color: cadetblue;
+            color: bisque;
+        }
+        
+             DIV {
+             background-color: cadetblue;
+             color: bisque;
+             }
+        
+        p{
+            background-color: azure
+        }
+
+             span {
+             background-color: antiquewhite;
+             color: cadetblue;
+             }
+
+    </style>
+    <!--웹 문서의 요소들의 스타일 정의-->
+    <script>
+      //  alert('안녕하세요'); < !--""
+        보단 ''
+        쓰는게 나음-- >
+
+    </script>
+    <!--자바스크림트 정의-->
+</head>
+
+<body>
+    
+    <h3 id="#top">INDEX</h3>
+    <ol>
+        <li> <a href="https://www.naver.com/">NAVER</a></li>
+        <li> <a href="http://192.168.0.9/">홈페이지</a></li>
+        <li> <a href="#tag-2">p tag</a></li>
+        <li> <a href="#tag-3">br tag</a></li>
+        <li> <a href="#tag-4">List tag</a></li>
+        <li> <a href="#tag-5">List tag</a></li>
+        <li> <a href="#tag-6">img tag</a></li>
+        <li> <a href="#tag-7">공간분할</a></li>
+    </ol>
+ 
+
+    <hr>
+    
+    <h1>for tag</h1>
+    
+    <form action="#" method="get">
+        
+   아이디 <input type="text" name="userid" value="value"><br>
+   이름 <input type="text" name="username" value="value"><br>
+   비밀번호 <input type="password" name="pw" value="value"><br>
+   프로필사진 <input type="file" name="file"><br>
+   ok?<input type="checkbox" name="ok"><br>
+        
+   A<input type="radio" name="choice" value="A">
+   B<input type="radio" name="choice" value="B">
+   C<input type="radio" name="choice" value="c"><br>
+        
+        <input type="submit" value="서버로 전송">
+        
+        
+    
+    
+    
+    
+    </form>
+    
+    
+    
+
+    <hr>
+    
+    <h1 id=tag-7"">공간분할 tag</h1>
+    
+  <!--  block-->
+    <div> DIV DIV DIV DIV DIV</div>
+    <div> DIV DIV DIV DIV DIV</div>
+    <!--inline-->
+    <span> spanspanspanspanspan</span>
+     <span> spanspanspanspanspan</span>
+    
+    <hr>
+    
+    
+    <h1 id="tag-6"> img tag</h1>
+    <imp src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"/>
+    <img src ="images%20(1).jpg" width="200"height="100" >
+    <img src="images.jpg" whidth="200"height="100" >
+    
+    <img src = "image/dddd.jpg"height="100" >
+    <img src = "image/images%20(2).jpg"height="100" >
+    
+    <img src ="test" alt="이미지파일입니다.">
+    
+    <hr>
+    
+    <h1 id="tag-5"> Table tag</h1>
+    
+    <table border="1">
+        <tr>
+            <th colspan="2">지역별 홍차</th>
+            <!--<td></td>-->
+        </tr>
+        <tr>
+            <th rowspan="3">중국</th>
+            <td>정산소종</td>
+        </tr>
+        <tr>
+            <td>기문</td>
+        </tr>
+        <tr>
+           <!-- <td></td>-->
+            <td>운남</td>
+        </tr>
+        <tr>
+            <th rowspan="4"> 인도 및 스리랑카</th>
+            <td>아삼</td>
+        </tr>
+        <tr>
+            <!--<td></td>-->
+            <td>실론</td>
+        </tr>
+        <tr>
+            <!--<td></td>-->
+            <td>다질링</td>
+        </tr>
+
+        <tr>
+            <td>닐기링</td>
+        </tr>
+
+    </table>
+    
+    
+    <table border="1">
+        <tr>
+            <td colspan="2">1,1</td>
+          <!--  <td>1,2</td>-->
+            
+        </tr>
+           <tr>
+            <!--<td>2,1</td>-->
+            <td>2,2</td>
+            
+        </tr>
+    </table>
+    
+        <table border="1">
+        <tr>
+            <td colspan="2">1,1</td>
+          <!--  <td>1,2</td>-->
+            
+        </tr>
+            <tr>
+            <td>2,1</td>
+            <td>2,2</td>
+            
+        </tr>
+            </table>
+    
+    
+  
+    <table border="1">
+        <tr>
+            <th>tag</th>
+            <th>설명</th>
+        </tr>
+         <tr>
+            <td>Table</td>
+            <td>테이블을 생성해주는 태그</td>
+        </tr>
+         <tr>
+            <td>thead</td>
+            <td>테이블의 머리글</td>
+        </tr>
+         <tr>
+            <td>tbody</td>
+            <td>테이블의 본문</td>
+        </tr>
+         <tr>
+            <td>tfoot</td>
+            <td>테이블 꼬리</td>
+        </tr>
+         <tr>
+            <td>tr</td>
+            <td>테이블의 행을 생성</td>
+        </tr>
+         <tr>
+            <td>th</td>
+            <td>표의 각 열의 라벨을 표현</td>
+        </tr>
+         <tr>
+            <td>td</td>
+            <td>행의 포함되는 열을 생성</td>
+        </tr>
+        
+    
+    </table>
+    
+    
+    <hr>
+    <h1 id="tag-4">LIST tag</h1>
+    
+    <!--순서 없는 리스트-->
+    <ul>
+        <li>카카오</li>
+        <li>네이버</li>
+        <li>페이스북</li>
+    </ul>
+    
+    <hr>
+    
+    <!--순서 있는 리스트-->
+    <ol>
+        <li>카카오</li>
+        <li>네이버</li>
+        <li>페이스북</li>
+    </ol>
+    <hr>
+    
+    <h3 id ="tag-3">홍차</h3>
+    <hr>
+    <h4>정의</h4>
+    <p>
+        동양에서는 우러난 차의 빛깔(붉은색)을 보고 홍차라고 하지만, 서양에서는 찻잎의 색깔(검은색)을 보고 흑차(Black Tea)라고 부른다. 녹차는 동서양 공통으로 綠茶-Green Tea다. 즉, 동양(특히 중국)에서 '흑차'라고 하면 보이차 종류의 후발효차를 지칭하는 명칭이다. 반대로 서양에서 '홍차', 즉 red tea는 허브의 일종인 루이보스를 우려낸 대용차를 말한다.
+    </p>
+    <h4> 등급 </h4>
+    <p>
+    흔히 영국이 홍차의 대명사로 알려져 있는데, 영국이 홍차 문화의 꽃을 피운건 맞지만 사실 차나무는 중국이 원산지이며, 현재는 인도에서 가장 많이 생산 및 소비된다. 인도는 세계 홍차 생산의 약 44%, 소비의 72%를 점유하는 홍차의 최대 생산 겸 소비국이다.
+    </p>
+    -브로큰 페코
+    <br> <br>
+    -브로큰 페코 수숑
+    <br> <br>
+    -브로큰 오렌지 페코 패닝
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    <h1 id="tag-2"> 문단 tag</h1>
+        <h2>"이 가격엔 집 팔지 말자"...아파트에 글 붙인 50대 벌금형</h2>
+        <p>
+            자신이 사는 아파트에 특정 가격 이하로는 집을 팔지 말자는 안내문을 붙인 50대가 벌금형을 선고받았습니다.
+        </p>
+        <p>
+            서울북부지방법원은 지난 12일 공인중개사법 위반 혐의로 재판에 넘겨진 52살 김 씨에 대해 벌금 50만 원을 선고했습니다.
+        </p>
+    
+    <p>
+        김 씨는 지난 2월 자신이 사는 서울 강북구의 아파트 1층 게시판에 특정 가격 이하로는 집을 거래하지 말자며 안내문을 붙인 혐의를 받습니다.
+    </p>
+    <p>
+        또, 아파트 입구에 낮은 가격에 집을 거래해 아파트 가치를 하락시키는 A 부동산은 이용하지 말자는 현수막을 붙인 혐의도 받습니다.
+    </p>
+    <p>
+        재판부는 김 씨가 이런 안내문을 붙여 특정가격 이하로 집을 매매하지 않도록 유도해 개인공인중개사 등의 업무를 방해했다고 판단했습니다.
+    </p>
+
+
+        <hr>
+
+        <H1 id="tag-1">안녕하세요</H1>
+        <!--컨트롤 시프트 엘 정렬-->
+        <h1>This is heading 1</h1>
+        <h2>This is heading 2</h2>
+        <h3>This is heading 3</h3>
+        <h4>This is heading 4</h4>
+        <h5>This is heading 5</h5>
+        <h6>This is heading 6</h6>
+    
+    
+    <a hreg="#top">top</a>
+
+</body>
+
+</html>

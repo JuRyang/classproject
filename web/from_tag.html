@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>FORM TAG 연습</title>
+    <meta charset="utf-8"> <!--반드시 공식처럼 쓰여야 함-->
+    </head>
+    <style></style>
+    <script></script>
+    <body><!--페이지에 출력-->
+    
+        
+        <h1>Form Tag</h1>
+        <hr> <!--선-->
+        
+        <!--컨트롤 시프트 / 자동 주석-->
+        
+        <!--서버로 전송하고자 하는 폼 데이터를 묶는다.
+            action : 데이터를 전송할 경로(위치)
+            method : 전송 방식(GET/POST)
+                        #자기자신이 들어옴                    -->
+        <form action="#" method="get">
+            <!--(중요)name파라미터의 이름이 됨 -->
+            type=text: 
+            <input type="text" name="usermane" value="tester"><br>
+            type=password:
+            <input type="password" name="pw"><br>
+            
+            <!--체크박스는 하나만 선택-->
+            type=checkbox:
+            <input type="checkbox" name="chk" value ="ok1">
+            <input type="checkbox" name="chk" value ="ok2"><br>
+            <!--radio는 여러개 중에 하나 선택-->
+            type=radio :
+            A<input type="radio" name="choice" value="A">
+            B<input type="radio" name="choice" value="B">
+            C<input type="radio" name="choice" value="C">
+            D<input type="radio" name="choice" value="D">
+            E<input type="radio" name="choice" value="E">
+            
+            
+            <br>
+            
+            type=color :
+              <input type="color">
+            <br>
+            
+            <!--날짜표현-->
+            type=datetime-local:
+            <input type="datetime-local" name="localdatetime"><br>
+            
+            type=date:
+            <input type="date" name="date"><br>
+            
+            <!--두번은 쓰지 않는다<input type ="datetime">-->
+            type=time:
+            <input type ="time" name="time"><br>
+            
+            type=moth:
+            <input type="month"><br>
+            
+            type=week:
+            <input type="week"><br>
+            
+            
+            type=email:
+            <input type="email" name="email"><br>
+            type=file:
+            <input type="file"name="userPhoto"><br>
+            <!--사용자는 안보이지만 서버관리자에겐 보여야 하는 정보-->
+            type=hidden:화면에는 표현되지않는다.
+            <input type="hidden" name="idx" value="1"><br>
+            
+            type=image:
+            <input type="image" src="images.jpg"height="50"><br>
+            <!--숫자만 받음 -->
+            type=number:
+            <input type="number" name="num"><br>
+            
+            type=range :
+            <input type="range" name="age" min="0", max="150"><br>
+            
+            <!--미국전화번호 방식이라 문자도 들ㅇㅓ감-->
+            type=tel:
+            <input type="tel"><br>
+            
+            type=url:
+            <input type="url" name="url"><br>
+            
+            
+            
+        
+            
+            
+            <br>
+            <input type = "submit">
+            <input type ="reset">
+        
+        
+        
+        </form>
+        
+        
+        
+        
+    </body>
+
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS선택자.</title>
+    <style>
+     /*   선택자{
+            속성이름: 속성값;
+            속성이름: 속성값;
+        } */
+        
+     /*   p{color:black} */
+        
+  /*      전체선택자:전체 폰트의 컬러값을 지정*/
+      /*  *{
+            color:red;
+        }*/
+        
+        
+        /*태그 선택자*/
+        h1,p,body{
+            margin:0;
+            padding:0;
+        }
+        
+        h1{
+            background-color: coral;
+      
+        
+        }
+        p{
+            color:blue;
+            background-color: aliceblue;
+       
+        }
+        
+        div{
+            height:50px;
+        }
+        
+        form{
+            border:1px solid black;
+        }
+        
+                ul{
+            border:1px solid black;
+        }
+        
+                li{
+            border:1px solid black;
+        }
+    
+/*        아이디 선택자:#아이디*/
+        #header{
+            background-color:brown;
+            
+        }
+        #aside{
+            background-color: burlywood;
+        }
+        #content{
+            background-color:bisque;
+        }
+        
+        /*클래스 선택자: 요소에 class 속성이 있는 것을 지정하는 선택자*/
+        div.color_white{
+            color:white;
+            
+        }
+        
+        .color_white{
+            color:white;
+            
+        }
+        
+        .font_size_32{
+            font-size: 32px;
+        }
+        
+        .font_weight_bold{
+            font-weight: bold;
+        }
+        
+        .font_italic{
+            font-style:italic;
+        }
+        
+       /* 속성 선택자:선택자[속성이름]*/
+        input[type]{
+            background-color: blueviolet;
+                color: red;
+        }
+        
+         /* 속성 선택자:선택자[속성이름=값]*/
+           input[type=buttom]{
+            background-color: azure;
+                padding:10px;
+               margin: 10px;
+               font-size:32px;
+               font-weight:bold;
+        }
+        
+        /* 속성 선택자:선택자[속성이름$=값]:특정 값으로 끝나는 속성*/
+        
+        img[src$=png]{
+            border:3px solid red;
+        }
+        img[src$=gif]{
+            border:3px solid blue;
+        }
+        img[src$=jpg]{
+            border:3px solid green;
+        }
+        
+       /* 후손 선택자 :  선택자A 선택자B
+        A태그 하위의 존재하는 태그를 기준으로 B선택자로 선택
+        */
+        #header1 h1{
+            background-color: black;
+            color:aliceblue;
+            font-size: 16px;
+        }
+        
+        
+       /* 
+        자손 선택자: 선택자 A > 선택자 B
+        선택자 A로 선택된 태그 바로 아래의 태그들 중 선택자 B로 선택.*/
+        
+        #header1>h1{
+            
+            border: 5px solid gray;
+            font-style:italic;
+        }
+        
+        /*동위선택자: 범위를 한정해서 선택
+        선택자A+선택자B-> A선택의 태그 바로 뒤에 있는 선택자B*/
+        
+        #div1>h1+h2{
+            background-color: darkorchid;
+            color:deeppink;
+        }
+        
+        #div1>h1 ~ h2{
+            background-color: cornflowerblue
+                
+        }
+        
+        /*반응 선택자 
+        hover:마우스 커서가 특정 태그 위로 올라갈때 
+        active:마우스 버튼 누르고 있는 상태*/
+        
+        h1:hover{
+            background-color: red;
+            color:antiquewhite;
+            cursor: pointer;
+        }
+        
+        h1:active{
+            background-color: beige;
+            color:aqua;
+            cursor: pointer;
+            
+        }
+        
+        /*
+        상태선택자
+        :checked  -> checkbox,radio
+        :focus    -> input
+        :enabled  -> 사용 가능한 input
+        :disabled -> 사용 불가한 input
+        */
+        
+        input: enabled{
+            border:1px solid blue;
+            background-color:aqua;
+        }
+        
+        input:disabled{
+            border:1px solid red;
+            background-color: darkblue;
+        }
+        
+        input:focus{
+            background-color: chartreuse;
+        }
+        
+        #msg{
+            padding:20px;
+            background-color: crimson;
+            display:none;
+        }
+        
+        input[type=checkbox]:checked+#msg{
+            display:block;
+        }
+        
+        #nav,#nav>li{
+            border:0;
+            list-style:none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #nav{
+            margin: 20px 0;
+            overflow:hidden; 
+            /*float:left 속성을 #nav 안으로 한정한다.*/
+        }
+        
+        #nav>li{
+            float:left;
+            padding: 0 10px;
+          /*  border:1 solid gray;*/
+        }
+        
+        #nav>li:first-child{
+            background-color:aqua;
+            border-radius:10px 0 0 10px;
+        }
+        
+         #nav>li:last-child{
+            background-color:aqua;
+            border-radius:0 10px 10px 0 ;
+        }
+        
+          #nav>li:nth-child(2n){
+            background-color: bisque;
+        }
+        
+        #nav>li:nth-child(2n+1){
+            background-color: aqua;
+        }
+        /*
+        문자 선택자
+        ::first-letter
+        ::first-line
+        */
+        
+        p::first-letter{
+            font-size:300%; /*16px *3*/
+        }
+        p::first-line{
+            color:blueviolet;
+        }
+        
+        p::selection {
+            background-color: darkorange;
+            color:aqua;
+        }
+        
+        /*링크 선택자
+        :link 
+        :visited*/
+        
+        a:link{
+            color: chocolate;
+            text-decoration: none;
+            
+        }
+        a:visited{
+            color:cadetblue;
+            text-decoration:none;
+        }
+        a:hover{
+            color: aquamarine;
+        }
+  /*      a:link::after{
+            content:'('attr(href)')';
+        }*/
+        
+          a:link::before{
+            content: '('attr(href)')';
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    <h2>
+    
+    <a href="http://www.naver.com">네이버</a>
+    
+    </h2>
+    <p>
+    사람 피부처럼 온도와 자극을 모두 감지할 수 있는 전자 피부가 개발됐습니다.
+    포항공대 정운룡 교수·유인상 박사와 미국 스탠퍼드대 공동연구팀은 온도와 기계적 자극을 동시에 측정할 수 있는 전자 피부를 세계 최초로 개발했다고 밝혔습니다.
+    </p>
+    
+    <p>
+    개발된 전자 피부는 전해질을 함유한 이온 전도체 소재로 만들어졌고, 꼬집기나 비틀림, 벌림 등의 다양한 움직임은 물론 차갑거나 뜨거운 온도에도 반응한다고 연구팀은 설명했습니다.
+    </p>
+    <ul id="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    
+    
+    숨기기<input type="checkbox">
+    <div id= "msg">
+        체크박스를 체크하시면 DIV블록이 안보입니다.
+    
+    </div>
+    
+    <br>
+    
+    <input><input disabled>
+    
+    
+    <div id="div1">
+ <h1>Header - 1</h1>
+ <h2>Header - 2</h2>
+ <h2>Header - 2</h2>
+ <h2>Header - 2</h2>
+ <h2>Header - 2</h2>
+</div>
+    
+    
+    <!--<div id="header1">
+ <h1 class="title">Lorem ipsum</h1>
+ <div id="nav">
+ <h1>Navigation</h1>
+ </div>
+ </div>
+ <div id="section">
+ <h1 class="title">Lorem ipsum</h1>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ </div>-->
+
+    
+    <!--<img src = "image/dddd.jpg" height="100">
+    <img src = "image/images%20(2).jpg" height="100">
+    <img src = "d.png" height="100">-->
+    
+  <!--  <h1>form tag -> input</h1>
+    <frorm>
+  
+        <ul>
+        <li>
+            <input type="text">
+            
+        </li>
+            <li>
+            <input type="button" value="button">
+            
+        </li>
+            <li>
+            <input type="password" value="password">
+            
+        </li>
+         <li>
+            <input type="button" value="새로운버튼">
+            
+        </li>
+        </ul>
+    </frorm>
+    
+    <div id ="header" class="color_w font_size_32 font_weight_bold 
+                             font_italic">header </div>
+    <div id="aside" class="color_white">aside</div>
+    <div id="content"class="color_white">content</div>
+    
+    
+    
+    
+    
+    <h1 class="color_w">온도·자극 동시에 감지하는 인공피부 최초 개발</h1>
+    <p>
+        사람 피부처럼 온도와 자극을 모두 감지할 수 있는 전자 피부가 개발됐습니다.
+    포항공대 정운룡 교수·유인상 박사와 미국 스탠퍼드대 공동연구팀은 온도와 기계적 자극을 동시에 측정할 수 있는 전자 피부를 세계 최초로 개발했다고 밝혔습니다.
+    개발된 전자 피부는 전해질을 함유한 이온 전도체 소재로 만들어졌고, 꼬집기나 비틀림, 벌림 등의 다양한 움직임은 물론 차갑거나 뜨거운 온도에도 반응한다고 연구팀은 설명했습니다.
+    
+    
+    
+    </p>-->
+</body>
+</html>
