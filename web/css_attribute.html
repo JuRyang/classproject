@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 속성</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+    
+    <style>
+        h1.title{
+            background-color:bisque;
+            color: darkcyan;
+            font-size: 24px;
+        }
+         body{
+             url은 경로를 표현
+           background-image: url(d.png);
+         }
+    </style>
+    
+    
+    
+    <style>
+        
+        
+       /* CSS사용되는 단위: %,em,px*/
+        
+        #size1>div:nth-child(1){
+            font-size:100%;
+        }
+         #size1>div:nth-child(2){
+            font-size:150%;
+        }
+         #size1>div:nth-child(3){
+            font-size:200%;
+        }
+        
+         #size2>div:nth-child(1){
+            font-size:100%;
+        }
+         #size2>div:nth-child(2){
+            font-size:150%;
+        }
+         #size2>div:nth-child(3){
+            font-size:200%;
+        }
+        
+         #size3>div:nth-child(1){
+           font-size:16px;
+        }
+         #size3>div:nth-child(2){
+            font-size:24px;
+        }
+         #size3>div:nth-child(3){
+            font-size:32px;
+        }
+        
+        
+        
+        
+        
+    </style>
+    <style>
+        #color>h4:nth-child(1){
+            /*키워드를 이용한 색상 값*/
+            background-color: cadetblue;
+            color:burlywood;
+        }
+         #color>h4:nth-child(2){
+             /*rgb(R,G,B)를 이용한 색상 표현*/
+             background-color: rgb(123,79,00);
+             color: rgb(102,0,0);
+            0
+        }
+         #color>h4:nth-child(3){
+             /*rgba(R,G,B,A)를 이용한 색상 표현:투명도 표현*/
+            background-color: rgba(255,0,0,0.4);
+            color: darkblue
+            
+        }
+         #color>h4:nth-child(4){
+            /*#000000을 이용한 색상표현*/
+             /*background-color: #EEEEEE;*/
+             /*https://color.adobe.com/ko/create/color-wheel 색 사이트 참고*/
+             background-color: #F2CF5C; /*#EEEEEE*/
+             color:#F06960;
+        }
+    </style>
+    <style>
+       /*박스 속성: 폭width, 너비heigth, border,padding margin테두리*/
+        #box{
+            background-color: antiquewhite;
+            
+           /* 표현 영역*/
+            width: 100px;
+            height: 100px;
+            
+            /*테두리*/
+            border:10px solid red;
+            
+            /*테두리와 텍스트 사이의 간격*/
+            padding :10px;
+            /* padding-top: 50px;*/
+            
+            /*요소,태그들과의 간격*/
+            margin:100px;
+           /* margin-left: 400px;*/ /*로그인버튼 만들때 활용할 수 있음*/
+            
+            
+            
+        }
+        
+        #box2{
+            background-color: cadetblue;
+            
+            width: 100px; 
+            height: 100px;
+            
+            padding:10px;
+            margin: :10px;
+            
+            border:5px solid gray;
+            /*border-radius 좌상 우상 우하 좌하*/
+            /*border-radius:10px;*/ /*모서리기울기*/
+            /*border-radius: 10px 30px*/  /*모서리 좌상우상 우하좌하*/
+            /*border-radius: 10px 20px 30px 50px*/
+            
+            border-radius: 70px;
+            
+            background-image:url(images.jpg);
+            background-size:contain;
+        }
+        
+        
+    </style>
+    <style>
+        #display span{
+            background-color: aquamarine;
+            width:100px;
+            height:100px;
+        }
+        #display>sapn:nth-child(1){
+           /* 화면에서 요소 태그를 표현하지않는다.*/
+            /*display:none;*/
+        }
+         #display>sapn:nth-child(2){
+           /* display:block;  안됨 다시 보기*/
+             display: inline-block;
+        }
+         #display>sapn:nth-child(3){
+            
+        }
+    
+    </style>
+    <style>
+        #font {
+          /*  font-family: '궁서체';*/
+            font-family: 'Dokdo', cursive;
+            /*font-family: 'Nanum Gothic', sans-serif;*/
+            font-size: 2em;
+           /* font-weight: bold;*/
+            font-weight: bold;
+            font-style: italic;
+            color:blueviolet;
+            
+            /*텍스트의 수평 방향의 정렬:center,left,right*/
+        }
+    </style>
+    <style>
+        
+        h3{
+            text-align:center;
+            
+            width: 80%;
+            text-shadow: 5px 5px 5px gray;
+        }
+        
+        /*동의*/
+        h3+h4{
+            text-align:  right;
+        }
+        h3+h4+p{
+            line-height: 160%
+            border:1px solid #EEE;
+            width:80%
+            box-shadow: 5px 5px 20px gray;
+        }
+    
+    </style>
+</head>
+
+<body>
+    
+    <h1 class="title">텍스트의 중앙 정렬</h1>
+    <h3>텍스트의 수평 방향의 정렬</h3>
+    <h4>2020.11.24</h4>
+    <p>
+        24일 한국은행이 발표한 '2020년 11월 소비자동향 조사'에 따르면 주택가격전망 소비자동향지수는 130으로, 지난 2013년 집계가 시작된 이후 가장 높게 나타났다.소비자동향지수(CSI)는 경제 상황에 대한 소비자 설문조사 결과를 지수로 환산해 나타낸 지표다. 일반 소비자들의 체감 경기를 보여준다.
+    </p>
+    
+    <h1 class="title">폰트 관련 속성: font-family, font-size, font- style, font-weight</h1>
+    <div id="font">
+        안녕하세요. 반갑습니다.
+    </div>
+    
+    <h1 class="tittle">display 속성: none, block, inline-block</h1>
+    <div id="display">
+        <span> span1</span>
+        <span> span2</span>
+        <span> span3</span>
+    </div>
+    
+
+    <h1 calss="title"> 박스 속성: width, heigth, border,padding margin </h1>
+    <div>
+        <div id ="box2">
+        </div>
+        <div id="box">
+            BOX BOX BOX BOX BOX BOX
+        </div>
+    </div>
+    test
+    <h1 class="title" >COLOR를 표현하는 단위</h1>
+    <div id="color">
+        <h4>키워드 이용한 색상 표현</h4>
+        <h4>rgb(R,G,B) 이용 색상 표현</h4>
+        <h4>rgba(R,G,B,A)이용 색상 표현</h4>
+        <h4>#00000</h4>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1 class="title">Font-size:단위를 확인</h1>
+    <div>
+    <div id="size1">
+     <div>font-size:100%</div>
+     <div>font-size:150%</div>
+     <div>font-size:200%</div>
+    </div>
+    
+        <div id="size2">
+     <div>font-size:1.0em</div>
+     <div>font-size:1.5em</div>
+     <div>font-size:2.0em</div>
+    </div>
+    
+            <div id="size3">
+     <div>font-size:16px</div>
+     <div>font-size:24px</div>
+     <div>font-size:32px</div>
+    </div>
+   </div>
+   
+    
+    
+    
+    
+</body>
+</html>

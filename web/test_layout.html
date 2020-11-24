@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 만들기</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        
+        
+   
+
+
+ 
+        
+        *{
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+            padding:0;
+        }
+        
+        
+        
+           div{
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 20px;
+        }
+        
+
+        body{
+              background-color: azure;
+        }
+        
+        #main_wrap {
+            width: 800px;
+            height: 800px;
+            
+            background-color: #FFF;
+            
+            margin: 20px auto;
+            
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            
+            box-shadow: 3px 3px 5px #DDD;
+            
+        }
+        
+        
+            
+        
+           /*해더*/
+        header {
+            border: 1px solid ;   
+            padding:20px;
+        }
+        /*네비게이션*/
+        nav {
+            border: 1px solid ; 
+            padding:20px;             
+        }
+        /*contents_wrap*/
+        #contents_wrap {
+            overflow: hidden;
+        }
+        /*content*/
+        #content {
+            border: 1px solid ;  
+            width: 595px;
+            height: 300px;
+            float: left;        
+        }
+        /*aside*/
+        #contents_wrap>aside{
+            border: 1px solid ;  
+            width: 195px;
+            float: right;  
+            height: 100px;
+        }
+        
+        /*footer*/
+        footer {
+            border: 1px solid ; 
+            padding:20px;
+        }
+
+    
+    </style>
+    
+    <style>
+        #header{
+            font-style: italic;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h4{
+             text-align: left;
+
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    
+    
+
+
+        <div id="main_wrap">
+        <div id="header">
+        <header>HTML5 EXample Preview</header>
+            
+        <nav>
+             <span> HTML5 </span>
+             <span> CSS3</span>
+             <span> JavaScript</span>
+            
+            </nav>
+            
+            
+            
+        <div id="contents_wrap">
+            
+            <div id="content">
+                <h4>HTML5 개요와 활용</h4>
+                <h5 >2013년 02월 14일</h5>
+                <div id="wrap">
+      <img src="d.png" width="100">
+       <p>
+        한 대표는 "구글은 국내 모바일 앱마켓에서의 절대적인 영향력을 가지고 있다"며 "구글플레이의 수수료 정책 변화는 네이버뿐 아니라 국내 창작환경에 큰 영향을 주기 때문에 어떻게 하면 창작자와 소비자 모두에게 좋은 시장과 생태계를 만들 것인가를 신중하게 접근해야 한다"고 말했다.이어 "구글 결제 수단뿐 아니라 다양한 옵션을 제공한다면 국내시장 창작자 성장에 도움 될거라 생각한다"며 "구글이 좀 더 신중하게 고민해야 할 것"이라고 덧붙였다.
+        한 대표는 국내에서 많은 수익을 내고 있는 구글이 국내 시장에 기여할 방안을 고려해야 한다고도 했다. 그는 "(구글은) 국내에서 많은 수익을 내고 있는 것이 분명하기 때문에 국내시장에 기여할 수 있는 부분에 대한 고려도 있어야 한다고 생각한다"고 했다 </p>
+                    <hr>
+        </div>
+                
+                </div>
+            <aside> 
+            
+        <div id="aside">
+            <div id="catagory">
+            <h5>카테고리</h5>
+            데이터
+           데이터
+            
+            </div>
+            
+            
+            
+            
+            
+            
+        </div>
+            
+            </aside>
+        </div>
+            
+            
+        <footer>
+            footer
+        </footer>
+    
+    </div>
+    
+</body>
+</html>
