@@ -5,25 +5,83 @@
 }
 
 body{
-    background-color: #DDD;
+    background-color:#f5f6f7 ;
 }
 
 #main_wrap {
     width: 800px;
 
-    background-color:aliceblue;
-
+   /* background-color:aliceblue;
+*/
     margin: 20px auto;
 
 }
 #lang{
     text-align: right;
+    margin: :20px;
+    padding: 6px 8px 5px 7px;
+    min-width: 98px;
+    height: 30px;
+    
 }
 
 #banner{
     width: 800px;
-    margin: :20px auto;
-    padding: 10px;
+    margin: : auto;
+    padding: 0px;
     text-align: center;
     
+}
+#check{
+    margin: 90px;
+    padding: 20;
+}
+#약관{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+#동의{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+
+#수집{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+#위치{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+
+#정보{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+#수신{
+    font-size: 23px;
+    padding: inherit;
+    margin: 50px;
+}
+#article{
+    font-size: 13px;
+}
+#button{
+   
+       margin: :20px auto;
+   padding: 30px 60px;
+    text-align: center;
+    font-size: :24px;
+}
+
+
+textarea{
+	width:500px; 
+	height:100px;
+    text-align: ;
 }

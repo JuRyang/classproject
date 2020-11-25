@@ -1,0 +1,20 @@
+
+
+
+        * {
+            height: 100px;
+            font-family: Dotum, '돋움', Helvetica, sans-serif;
+            margin: 0;
+            background: #f5f6f7;
+
+        }
+        
+        #banner{
+        width: 165px;
+            height: 32px;
+
+        background-color:aliceblue;
+        background-image:url(image/naver.png);
+
+        }
+
