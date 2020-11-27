@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript JSON</title>
+    <script>
+        
+        var book ={
+            name:'first Java',
+            private:'25000',
+            publisher:'first'
+        };
+        
+        //javaScript object -> string(json)
+        //JSON.stringify(javascript Object):string
+        var jsonStr = JSON.stringify(book);
+        
+        window.onload = function(){
+            document.getElementById('view').innerHTML=jsonStr;
+        };
+    
+    
+        var str='{"name":"first Java","private":"25000","publisher":"first"}';
+        
+        //JSON String -> javascript Object
+        var obj= JSON.parse(str);
+        console.log(typeof(obj));
+        console.log(obj);
+    
+    
+    
+    </script>
+</head>
+
+<body>
+    
+    <h1 id="view"></h1>
+    
+    
+</body>
+</html>
