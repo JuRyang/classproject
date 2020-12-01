@@ -8,6 +8,7 @@
 
 body{
     background-color:#f5f6f7 ;
+    position: relative;
 }
 
 #main_wrap {
@@ -75,10 +76,11 @@ body{
 }
 #button{
    
-       margin: :20px auto;
-   padding: 30px 60px;
+    margin: :20px auto;
+    padding: 30px 60px;
     text-align: center;
     font-size: :24px;
+
 }
 
 

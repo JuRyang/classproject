@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    font-family: 'Nanum Pen Script', cursive;
+    position: relative;
+}
+
+/* 프로그램 타이틀 선택*/
+h1.header{
+    margin:20px;
+    
+}
+
+hr{
+    border: 0;
+    border-top:1px solid #CCC
+}
+
+h2.title {
+    margin: 20px 40px;
+}
+
+#regfrom{
+    margin: : 10px 40px;
+}
+
+#regfrom>table{
+    width: 500px;
+}
+
+#regform>table td{
+    width: 120px;
+    padding:10px;
+    vertical-align: top;
+}
+
+#regform>table input{
+    width:100%;
+    padding: 5px;
+}
+
+#regform>table label{
+    display: block;
+}
+#regform>table input[type=submit]{
+    width: 100px;
+    height: 50px;
+    background-color: antiquewhite;
+    border: 1px solid #ccc;
+}
+
+div.msg{
+    color: mediumvioletred;
+    display: none;
+}
+
+table.table{
+     margin: 10px 40px;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+table.table td,table.table th{
+    padding: 10px;
+    border:1px solid #aaa;
+    background-color: #fff;
+    
+    text-align: center;
+   
+}
+
+div.edit_div{
+    
+    background-color: beige;
+    width: 300px;
+    padding: 10px;
+    
+    border:1px
+    solid #aaa;
+    border-radius:10px;
+    
+    box-shadow: 5px 5px 10px #ddd;
+    
+    position: absolute;
+    
+    top:50px; 
+    left: 100px;
+    display: none;
+    /*margin: 0 auto;*/
+    
+    
+    
+}
+
+
+div.edit_div>div.edit_for_header{
+    overflow:hidden;
+    padding: 5px;
+}
+
+div.edit_div>div.edit_for_header>h2{
+    float:left;
+}
+
+div.edit_div>div.edit_for_header>a{
+    float:right;
+}
+
+#editform{
+    margin:10px;
+    
+}
+
+#editfor>table{
+    width:100%
+}
+
+#editform>table td{
+    padding: 5px;
+    text-align: center;
+}
+
+#editform input[type=submit]{
+    background-color: azure;
+    padding: 10px;
+    width:50%;
+    font-size: 1.2em;
+    font-family: 'Nanum Pen Script', cursive;
+    font-weight: bold;
+    color: dimgrey;
+    
+    border: 1px solid dimgrey;
+    
+   /* display: none;*/
+}
+
