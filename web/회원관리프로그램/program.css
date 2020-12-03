@@ -5,7 +5,7 @@ body{
     font-family: 'Nanum Pen Script', cursive;
     position: relative;
     text-align: center;
-    background-color: beige;
+    background-color: floralwhite;
     
     
 }
@@ -14,17 +14,20 @@ body{
 #info{
     
     margin: 0 auto;
-    width: 250px;
+    width: 400px;
+    height: auto;
     
    
 }
 
+/*
 table.table{
-    margin: 50px 100px;
-    width: 80%;
+    margin: 5000px 100px;
+    width: 
     border-collapse: collapse;
     background-color: mediumaquamarine;
 }
+*/
 
 edit_div{
     border: 1px;
@@ -33,21 +36,27 @@ edit_div{
 #regform>table input{
     width:100%;
     padding: 5px;
+    
 }
 
 #regform>table label{
     display: block;
 }
-#regform>table input[type=submit]{
-    width: 100px;
-    height: 50px;
-    background-color: antiquewhite;
-    border: 1px solid #ccc;
+#sub input[type=submit]{
+    margin: 5px;
+    width: 80px;
+    height: 30px;
+    background-color: #ccc;
+    border: 1px solid ;
+    border-radius:5px;
+    font-family: 'Nanum Pen Script', cursive;
+    
+
 }
 
 div.msg{
-    color: mediumvioletred;
-    display: none;
+    color: red;
+    display:none;
 }
 
 table.table{
@@ -66,18 +75,18 @@ table.table td,table.table th{
 }
 
 div.edit_div{
-    
+   
     background-color: beige;
-    width: 300px;
+    width: 320px;
     padding: 10px;
     
     border:1px
     solid #aaa;
-    border-radius:10px;
+    border-radius:20px;
     
     box-shadow: 5px 5px 10px #ddd;
     
-    position: absolute;
+    position: fixed;
     
     top:50px; 
     left: 100px;
@@ -92,6 +101,7 @@ div.edit_div{
 div.edit_div>div.edit_for_header{
     overflow:hidden;
     padding: 5px;
+    
 }
 
 div.edit_div>div.edit_for_header>h2{
@@ -124,7 +134,7 @@ div.edit_div>div.edit_for_header>a{
     font-family: 'Nanum Pen Script', cursive;
     font-weight: bold;
     color: dimgrey;
-    
+    border-radius:5px;
     border: 1px solid dimgrey;
     
    /* display: none;*/

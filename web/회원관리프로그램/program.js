@@ -1,15 +1,17 @@
-//회원정보 저장
-var member = [];
+//회원정보 member 객체들을 저장하는 배열
+var members = []; //object ->문자열로 바꾸는게 필요 JSON
 
-function Member(id, pw, name) {
+//생성자 함수 Member (데이타를 저장할 수 있음(정보))
+
+function Member(id, pw, name){
     this.userid = id;
     this.userpw = pw;
     this.username = name;
 }
 
-Member.prototype.makeHtml = function (index) {
+Member.prototype.makeHtml = function(index){
     
-    console.log(this.userid + ':' + this.userpw + ':' + this.username);
+    console.log(this.userid+' : ' + this.userpw+' : ' + this.username);
     
     var memberHtml = '';
     memberHtml += '<tr>';
@@ -85,8 +87,6 @@ function regmember(){
     }
     
     
-    
-    
  /*   userid.onfocus=function(){
  document.querySelector('#userid+div.msg').style.display='none';
     }*/
@@ -114,7 +114,13 @@ function regmember(){
     if(check){
         return false;
     }
-
+/*    
+    var member ={
+        memberid:userid.value,
+        pw: pw.value,
+        membername: username.value
+    };
+    */
     
     var member = new Member(userid.value, pw.value, username.value);
     
@@ -158,7 +164,7 @@ function setlist(){
     for (var i = 0; i < members.length; i++) {
         //tbody += members[i].makeHtml(i);
         
-        tbody += '<tr>';
+         tbody += '<tr>';
         tbody += ' <td>' + i + '</td>';
         tbody += ' <td>' + members[i].userid + '</td>';
         tbody += ' <td>' + members[i].userpw + '</td>';
@@ -172,6 +178,7 @@ function setlist(){
     
     
 }
+
 //배열의 데이터를 삭제
 function delmember(index){
     
@@ -306,6 +313,4 @@ function editMemberClose(){
     editDiv.style.display = 'none';
 }
 
-    
 
-}
