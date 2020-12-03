@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery Event</title>
+    
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        
+        h1{
+            background-color: antiquewhite;
+        }
+        
+        .over{
+            border: 3px solid #000;
+        }
+        
+        div{
+            width : 70%;
+            border: 1px solid #DDD;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+    </style>
+    
+     <!--jquery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        $(document).ready(function(){
+            
+            // 이벤트 연결: on(이벤트 타입, 핸들러)
+           /* $('h1').on('click',function(){
+                
+                //클릭이 발생하면 이벤트가 발생한 객체의 문자열을 변경
+                //this -> 이벤트가 발생한 객체
+                //방법 1
+                //$(this).html($(this).html()+'+');    
+                //방법 2 (방법 1과 같은 출력) 함수 사용 
+                $(this).html(function(index,html){
+                    return html+'+'
+                });
+            });*/
+            
+            //여러 개의 이벤트를 등록할 때 객체형식으로 정의
+            $('h1').on({
+                mouseenter: function(){
+                    $(this).addClass('over');
+                },
+                mouseleave: function(){
+                    $(this).removeClass('over');
+                },
+                click:function(event){
+                    console.log(event);
+                    $(this).html(function(index, html){
+                        return html + '+';
+                    });
+                    //$(this).off('click');
+                    
+                    event.stopPropagation();
+                }
+            });
+            
+            //hover은
+            $('h2').hover(function(){
+                $(this).addClass('over');
+            },function(){
+                $(this).removeClass('over');
+                $('h2').off(); //더 이상 실행하지않는다.
+            });
+            
+            $('div').click(function(){
+                //this는 이벤트가 발생한 해당 위치를 div를 가르킴 그 안에서 h1을 찾음 범위 한정
+                var header = $('h1',this).text();
+                var paragraph = $('p', this).text();
+                
+                alert(header+' : '+paragraph);
+                
+                
+            });
+            
+            /*setInterval(function(){
+                $('h1').last().trigger('click');
+            },1000);*/
+            
+            $('a').click(function(event){
+                alert('네이버 못가요');
+                //event.preventDefault() //이벤트 전달 막음
+                return false;
+            });
+            
+            $('form').submit(function(){
+                alert('내부에서만 처리합니다. 이동 할 수 없습니다.');
+                //event.preventDefault();
+                return false;
+            });
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+    
+    <form action="http://www.naver.com">
+        <input type="submit">
+    </form>
+    
+     <div>
+        <h1>Header 1</h1>
+        <p>paragraph1</p>
+    
+    
+    
+    <h3>
+        <a href="http://www.naver.com">네이버</a>
+    </h3>
+    </div>
+    
+   
+    
+    <div>
+        <h1>Header 2</h1>
+        <p>paragraph2</p>
+    </div>
+    
+    <div>
+        <h1>Header 3</h1>
+        <p>paragraph3</p>
+    </div>
+    
+    <h2>hover()</h2>
+    
+    <h1>CLICK1 </h1>
+    <h1>CLICK2 </h1>
+    <h1>CLICK3 </h1>
+    
+</body>
+</html>
