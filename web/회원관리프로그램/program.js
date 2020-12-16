@@ -3,43 +3,46 @@ var members = []; //object ->문자열로 바꾸는게 필요 JSON
 
 //생성자 함수 Member (데이타를 저장할 수 있음(정보))
 
-function Member(id, pw, name){
+function Member(id, pw, name) {
     this.userid = id;
     this.userpw = pw;
     this.username = name;
 }
 
-Member.prototype.makeHtml = function(index){
-    
-    console.log(this.userid+' : ' + this.userpw+' : ' + this.username);
-    
+Member.prototype.makeHtml = function (index) {
+
+    console.log(this.userid + ' : ' + this.userpw + ' : ' + this.username);
+
     var memberHtml = '';
     memberHtml += '<tr>';
-    memberHtml += ' <td>'+index+'</td>';
-    memberHtml += ' <td>'+this.userid+'</td>';
-    memberHtml += ' <td>'+this.userpw+'</td>';
-    memberHtml += ' <td>'+this.username+'</td>';
-    memberHtml += ' <td><a href="javascript:editMember('+index+')">수정</a> <a href="javascript:delmember('+index+')">삭제</a></td>';
+    memberHtml += ' <td>' + index + '</td>';
+    memberHtml += ' <td>' + this.userid + '</td>';
+    memberHtml += ' <td>' + this.userpw + '</td>';
+    memberHtml += ' <td>' + this.username + '</td>';
+    memberHtml += ' <td><a href="javascript:editMember(' + index + ')">수정</a> <a href="javascript:delmember(' + index + ')">삭제</a></td>';
     memberHtml += '</tr>';
-    
+
     return memberHtml;
-    
+
 }
 
 
-window.onload = function(){
+window.onload = function () {
     //localStorage 저장하는 key -> members
     //localStorage.getItem('members') 저장 값이 없으면 null반환
-   if(localStorage.getItem('members')==null){
-       //초기배열 저장:배열을 문자열로 변경해서 저장
-       localStorage.setItem('members',JSON.stringify(members));
-   }else{
-       members=JSON.parse(localStorage.getItem('members'));
-       
-       console.log(members);
-       setlist();
-       
-   }
+    if (localStorage.getItem('members') == null) {
+        //초기배열 저장:배열을 문자열로 변경해서 저장
+        
+        //stringify메소드는 json객체를 string 객체로 변환시켜준다.
+        localStorage.setItem('members', JSON.stringify(members));
+    } else {
+        //parse는 string객체를 json객체로 변환
+        members =JSON.parse(localStorage.getItem('members'));
+
+        console.log(members);
+        setlist();
+
+    }
 }
 
 
@@ -49,13 +52,13 @@ function load(){
 }*/
 
 
-function regmember(){
-    
+function regmember() {
+
     //사용자가 입력한 데이터를 확인
     //유효성 검사
     //사용자 정보를 저장하는 객체를 생성
-    
-  /*  getElementById 이부분은 하나로 통일 연습이라 querySelector이것 저것 쓰임*/
+
+    /*  getElementById 이부분은 하나로 통일 연습이라 querySelector이것 저것 쓰임*/
     // 아이디
     var userid = document.querySelector('#userid');
     // 비밀번호
@@ -64,95 +67,97 @@ function regmember(){
     var repw = document.getElementById('repw');
     // 이름
     var username = document.querySelector('#username');
-    
+
     var check = false; //유효성 검사 문제없다
-    
-    
+
+
     //공백문자를 검사:trim()을 이용해서 공배 제거 후 문자열 비교
-    if(userid.value.trim().length<1){
-        document.querySelector('#userid+div.msg').style.display='block';
-        check=true;
+    if (userid.value.trim().length < 1) {
+        document.querySelector('#userid+div.msg').style.display = 'block';
+        check = true;
     }
-    if(pw.value.trim().length<1){
-        document.querySelector('#pw+div.msg').style.display='block';
-        check=true;
-    }    
-    if(repw.value.trim().length<1 || pw.value!=repw.value){
-        document.querySelector('#repw+div.msg').style.display='block';
-        check=true;
+    if (pw.value.trim().length < 1) {
+        document.querySelector('#pw+div.msg').style.display = 'block';
+        check = true;
     }
-    if(username.value.trim().length<1){
-        document.querySelector('#username+div.msg').style.display='block';
-        check=true;
+    if (repw.value.trim().length < 1 || pw.value != repw.value) {
+        document.querySelector('#repw+div.msg').style.display = 'block';
+        check = true;
     }
-    
-    
- /*   userid.onfocus=function(){
- document.querySelector('#userid+div.msg').style.display='none';
-    }*/
- 
-    userid.addEventListener('focus',function(){ document.querySelector('#userid+div.msg').style.display='none';
-        userid.value='';
+    if (username.value.trim().length < 1) {
+        document.querySelector('#username+div.msg').style.display = 'block';
+        check = true;
+    }
+
+
+    /*   userid.onfocus=function(){
+    document.querySelector('#userid+div.msg').style.display='none';
+       }*/
+
+    userid.addEventListener('focus', function () {
+        document.querySelector('#userid+div.msg').style.display = 'none';
+        userid.value = '';
     });
-    
-    pw.addEventListener('focus',function(){ document.querySelector('#pw+div.msg').style.display='none';
-        pw.value='';
+
+    pw.addEventListener('focus', function () {
+        document.querySelector('#pw+div.msg').style.display = 'none';
+        pw.value = '';
     });
-    
+
     repw.addEventListener('focus', function () {
         document.querySelector('#repw+div.msg').style.display = 'none';
         repw.value = '';
     });
     username.addEventListener('focus', function () {
-    document.querySelector('#username+div.msg').style.display = 'none';
-    username.value = '';
-     });
-    
+        document.querySelector('#username+div.msg').style.display = 'none';
+        username.value = '';
+    });
+
     console.log(check);
-    
-        
-    if(check){
+
+
+    if (check) {
         return false;
     }
-/*    
-    var member ={
-        memberid:userid.value,
-        pw: pw.value,
-        membername: username.value
-    };
-    */
-    
+    /*    
+        var member ={
+            memberid:userid.value,
+            pw: pw.value,
+            membername: username.value
+        };
+        */
+
     var member = new Member(userid.value, pw.value, username.value);
-    
+
     //console.log('member', member);
     member.makeHtml()
-    
+
     // 배열에 회원 정보를 저장
     members.push(member);
-    
+
     console.log('members', members);
-    
+
     document.querySelector('#regform').reset();
-    
+
     alert('등록되었습니다.');
-    
+
     //loclstorage 저장
-    localStorage.setItem('members',JSON.stringify(members));
-    
+    localStorage.setItem('members', JSON.stringify(members));
+
     // 리스트 갱신
     setlist();
-    
-    
-    
-    return false;/*무조건 false해야 이동하지않음*/
+
+
+
+    return false; /*무조건 false해야 이동하지않음*/
 }
 
 //리스트테이블의 정렬
-function setlist(){
-    
+function setlist() {
+
     //table tbody 캐스팅
     var listrow = document.querySelector('#listrow');
-    
+
     var tbody = '<tr>';
     tbody += '<th>순번(index)</th>';
     tbody += '<th>아이디</th>';
@@ -160,54 +165,54 @@ function setlist(){
     tbody += '<th>이름</th>';
     tbody += '<th>관리</th>';
     tbody += '</tr>';
-    
+
     for (var i = 0; i < members.length; i++) {
         //tbody += members[i].makeHtml(i);
-        
-         tbody += '<tr>';
+
+        tbody += '<tr>';
         tbody += ' <td>' + i + '</td>';
         tbody += ' <td>' + members[i].userid + '</td>';
         tbody += ' <td>' + members[i].userpw + '</td>';
         tbody += ' <td>' + members[i].username + '</td>';
         tbody += ' <td><a href="javascript:editMember(' + i + ')">수정</a> <a href="javascript:delmember(' + i + ')">삭제</a></td>';
         tbody += '</tr>';
-        
+
     }
-    
-    listrow.innerHTML=tbody; /*배열이 추가된걸 저장해줌*/
-    
-    
+
+    listrow.innerHTML = tbody; /*배열이 추가된걸 저장해줌*/
+
+
 }
 
 //배열의 데이터를 삭제
-function delmember(index){
-    
+function delmember(index) {
+
     var delChk = confirm('삭제하시겠습니까?');
-    
-    if(delChk){
-        
+
+    if (delChk) {
+
         //삭제 -> 배열에서 요소를 삭제
-        members.splice(index,1);
-        
-       //loclstorage 저장
-    localStorage.setItem('members',JSON.stringify(members));
-        
-        
+        members.splice(index, 1);
+
+        //loclstorage 저장
+        localStorage.setItem('members', JSON.stringify(members));
+
+
         alert('삭제되었습니다.');
-        
+
         //배열의 변결된 내용으로 리스트 출력
         setlist();
-        
+
     }
 }
 
 function editMember(index) {
     console.log(members[index]);
-    
-  // 수정 화면 캐스팅
+
+    // 수정 화면 캐스팅
     var editDiv = document.querySelector('div.edit_div');
     editDiv.style.display = 'block';
-    
+
     // form 안에 있는 input 캐스팅
     // id    
     var eid = document.querySelector('#editid');
@@ -246,11 +251,11 @@ function editMemberData() {
     var pw_msg = document.querySelector('#editpw+div.msg');
     var repw_msg = document.querySelector('#editrepw+div.msg');
     var ename_msg = document.querySelector('#editname+div.msg');
-    
-    
-    
-     var check = false; // 문제 없다
-    
+
+
+
+    var check = false; // 문제 없다
+
     // 공백문자를 검사 : trim()을 이용해서 공백 제거 후 문자열 비교
     if (epw.value.trim().length < 1) {
         pw_msg.style.display = 'block';
@@ -264,53 +269,51 @@ function editMemberData() {
         ename_msg.style.display = 'block';
         check = true;
     }
-    
-    
+
+
     epw.addEventListener('focus', function () {
-        pw_msg.style.display = 'none';
-            epw.value = '';
+        pw_msg.style.display =  'none';
+        epw.value = '';
     });
-    
+
     erepw.addEventListener('focus', function () {
         repw_msg.style.display = 'none';
         erepw.value = '';
     });
-    
+
     ename.addEventListener('focus', function () {
         ename_msg.style.display = 'none';
         ename.value = '';
     });
-    
+
     console.log(check);
-    
+
     if (check) {
         return false;
     }
-    
-    
-    
+
+
+
     //members[index] -> pw, name 수정
     members[eidx].username = ename.value.trim();
     members[eidx].userpw = epw.value;
-    
+
     //loclstorage 저장
-    localStorage.setItem('members',JSON.stringify(members));
-    
+    localStorage.setItem('members', JSON.stringify(members));
+
     alert('수정되었습니다.');
-    
+
     //회원 리스트 갱신
     setlist();
 
     document.querySelector('#editform').reset();
     document.querySelector('div.ed').style.display = 'none';
-    
+
     return false;
 }
 
-function editMemberClose(){
+function editMemberClose() {
     //수정 화면 캐스팅
     var editDiv = document.querySelector('div.edit_div');
     editDiv.style.display = 'none';
 }
-
-

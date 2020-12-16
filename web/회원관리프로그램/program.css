@@ -139,3 +139,18 @@ div.edit_div>div.edit_for_header>a{
     
    /* display: none;*/
 }
+
+.modal {
+    margin: 300px auto;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50;
+    top: 0;
+    overflow: hidden;
+
+    border: 3px solid black;
+    border-radius: 90px;
+
+
+}
