@@ -154,7 +154,11 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Context docBase="FirstWeb" path="/FirstWeb" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/><Context docBase="JRPAGE" path="/op" reloadable="true" source="org.eclipse.jst.jee.server:JRPAGE"/></Host>
+=======
+      <Context docBase="FirstWeb" path="/FirstWeb" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/></Host>
+>>>>>>> parent of 7509071... 2020.12.21 openproject
 =======
       <Context docBase="FirstWeb" path="/FirstWeb" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/></Host>
 >>>>>>> parent of 7509071... 2020.12.21 openproject
