@@ -15,16 +15,6 @@
           서블릿 등록
           서블릿 이름, 서블릿 클래스의 풀네임     
           -->
-     <servlet>
-  	<servlet-name>nowServlet</servlet-name>
-  	<servlet-class>test.HelloServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>nowServlet</servlet-name>
-  	<url-pattern>/hello</url-pattern>
-  </servlet-mapping>
-          
   
   <!--에러 페이지의 등록  -->
   <!--http상태코드로 등록  -->
@@ -42,5 +32,14 @@
    </error-page>
    
    
-
+  <servlet>
+  <servlet-name>nowServler</servlet-name>
+  <servlet-class>test.Hellowservlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>nowServler</servlet-name>
+  
+  <url-pattern>/hellow</url-pattern>
+  </servlet-mapping>
 </web-app>
