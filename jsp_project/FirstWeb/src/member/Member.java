@@ -46,10 +46,14 @@ public class Member {
 		this.photo = photo;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [userId=" + userId + ", pw=" + pw + ", userName=" + userName + ", photo=" + photo + "]";
+	public Member(String userId, String pw, String userName, String photo) {
+		this.userId = userId;
+		this.pw = pw;
+		this.userName = userName;
+		this.photo = photo;
 	}
+
+	
 	
 	
 }
