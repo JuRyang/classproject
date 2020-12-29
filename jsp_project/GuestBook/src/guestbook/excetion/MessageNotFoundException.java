@@ -1,4 +1,4 @@
-package guestbook.excetipm;
+package guestbook.excetion;
 
 public class MessageNotFoundException extends Exception {
 

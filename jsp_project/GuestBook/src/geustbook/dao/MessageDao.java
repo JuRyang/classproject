@@ -146,7 +146,7 @@ public class MessageDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql="DELETE FROM `opn`.`guestbook_message` WHERE message_id=?";
+		String sql="DELETE FROM opn.guestbook_message WHERE message_id=?";
 		
 		try {
 

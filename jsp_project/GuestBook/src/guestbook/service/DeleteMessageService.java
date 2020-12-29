@@ -5,8 +5,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import geustbook.dao.MessageDao;
-import guestbook.excetipm.InvalidMessagePasswordException;
-import guestbook.excetipm.MessageNotFoundException;
+import guestbook.excetion.InvalidMessagePasswordException;
+import guestbook.excetion.MessageNotFoundException;
 import guestbook.model.Message;
 import jdbc.ConnectionProvider;
 import jdbc.jdbcUtil;
