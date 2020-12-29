@@ -9,6 +9,9 @@ SELECT * FROM opn.guestbook_message;
 
 -- 삭제 sql
 DELETE FROM `opn`.`guestbook_message` WHERE message_id=1;
--- DELETE FROM `opn`.`guestbook_message` WHERE message_id=?;
+-- DELETE FROM `opn`.`guestbook_message` WHERE message_id=?
+
+-- 게시물 하나를 검색하는 질의
+select * from opn.guestbook_message where message_id=11;
 
 

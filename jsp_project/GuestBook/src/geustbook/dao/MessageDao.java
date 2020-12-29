@@ -109,6 +109,58 @@ public class MessageDao {
 		
 		return message;
 	}
+
+	public Message selectMessage(Connection conn, int mid) throws SQLException {
+		
+		Message message = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from opn.guestbook_message where message_id=?"; //message_id:pk 유니크 결과 row
+		
+		try {
+		pstmt = conn.prepareStatement(sql); //여기서 예외처리 안하고 던지고  try~ finally
+		pstmt.setInt(1,mid);//첫번째 물음표
+		
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			message = makeMessage(rs);
+		}
+		
+		}finally {
+			
+			jdbcUtil.close(rs);
+			jdbcUtil.close(pstmt);
+			
+		}
+		
+		
+		return message;
+	}
+
+	//삭제 여부를 위해 void 대신 int로 바꾼다
+	public int deleteMessage(Connection conn, int mid) throws SQLException {
+		
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql="DELETE FROM `opn`.`guestbook_message` WHERE message_id=?";
+		
+		try {
+
+		  pstmt = conn.prepareStatement(sql);
+		  pstmt.setInt(1, mid);
+		
+		  resultCnt = pstmt.executeUpdate();
+		
+		}finally{
+			jdbcUtil.close(pstmt);
+		}
+		
+		return resultCnt;
+	}
 	
 	
 	
