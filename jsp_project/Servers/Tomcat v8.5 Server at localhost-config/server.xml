@@ -151,9 +151,9 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="FirstWeb" path="/FirstWeb" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/>
       
-      <Context docBase="openproject_1" path="/openproject_1" reloadable="true" source="org.eclipse.jst.jee.server:openproject_1"/><Context docBase="openproject_2" path="/openproject_2" reloadable="true" source="org.eclipse.jst.jee.server:openproject_2"/><Context docBase="GuestBook" path="/guest" reloadable="true" source="org.eclipse.jst.jee.server:GuestBook"/></Host>
+      
+      <Context docBase="openproject_1" path="/openproject_1" reloadable="true" source="org.eclipse.jst.jee.server:openproject_1"/><Context docBase="OpenProjectMVC" path="/opnmvc" reloadable="true" source="org.eclipse.jst.jee.server:OpenProjectMVC"/></Host>
     </Engine>
   </Service>
 </Server>
