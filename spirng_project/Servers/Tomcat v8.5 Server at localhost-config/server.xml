@@ -6,7 +6,9 @@
   The ASF licenses this file to You under the Apache License, Version 2.0
   (the "License"); you may not use this file except in compliance with
   the License.  You may obtain a copy of the License at
+
       http://www.apache.org/licenses/LICENSE-2.0
+
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,7 +23,7 @@
   <Listener className="org.apache.catalina.security.SecurityListener" />
   -->
   <!--APR library loader. Documentation at /docs/apr.html -->
- <!--  <Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/> -->
+  <Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/>
   <!-- Prevent memory leaks due to use of particular java/javax APIs-->
   <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
@@ -151,9 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      
-      
-      <Context docBase="openproject_1" path="/openproject_1" reloadable="true" source="org.eclipse.jst.jee.server:openproject_1"/><Context docBase="OpenProjectMVC" path="/opnmvc" reloadable="true" source="org.eclipse.jst.jee.server:OpenProjectMVC"/><Context docBase="project" path="/project" reloadable="true" source="org.eclipse.jst.jee.server:project"/><Context docBase="AjaxTest" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:AjaxTest"/><Context docBase="TestspringApp" path="/testApp" reloadable="true" source="org.eclipse.jst.jee.server:TestspringApp"/></Host>
+      </Host>
     </Engine>
   </Service>
 </Server>
