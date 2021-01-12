@@ -12,6 +12,7 @@ import com.aia.firstspring.member.service.MemberRegService;
 @Controller
 @RequestMapping("/member/reg")
 public class MemberRegController {
+	
 	@Autowired
 	private MemberRegService regService;
 	
@@ -19,20 +20,32 @@ public class MemberRegController {
 	public String getRegForm() {
 		return "member/regForm";
 	}
-
+	
 	@RequestMapping(method = RequestMethod.POST)
-	public String memberReg(Member member,Model model) {
+	public String memberReg(Member member, Model model) {
 		
+		System.out.println(member);
 		int resultCnt = regService.insertMember(member);
 		
-		model.addAttribute("resultCnt",resultCnt);
+		System.out.println(member);
+		
+		model.addAttribute("resultCnt", resultCnt);
 		
 		String view = "member/reg";
-		if(resultCnt ==1) {
+		
+		if(resultCnt==1) {
 			view = "redirect:/member/list";
 		}
 		
 		return view;
 	}
 	
+
 }
+
+
+
+
+
+
+

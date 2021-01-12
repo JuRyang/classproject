@@ -22,18 +22,17 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/WEB-INF/view/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!--MultiparResolver (반드시)등록 -> 파일 업로드 가능 -->
+	<!-- MultiPartResolver 등록 -> 파일 업로드 가능 -->
 	<beans:bean id="multipartResolver"
-	            class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
-	            p:defaultEncoding="utf-8"
-	            p:maxInMemorySize="10000000"
-	 >
-
-	<!-- <beans:property name="defaultEncoding" value="utf-8"/> -->
+							class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+							p:defaultEncoding="utf-8"
+							p:maxUploadSize="10000000"
+	>
+		<!-- <beans:property name="defaultEncoding" value="utf-8"/> -->
 	</beans:bean>
 	
 	<!-- <beans:bean id="memberDao"
@@ -45,6 +44,11 @@
 				class="com.aia.firstspring.member.service.MemberListService"/>
 	
 	 -->
+	
+	
+	
+	
+	
 	
 	
 	

@@ -17,11 +17,11 @@ public class MemberListController {
 	public String getMemberList(Model model) {
 		
 		
-		model.addAttribute("members",listService.getMemberList());
-		model.addAttribute("memberCnt", listService.getmemberTotalCount()); //전체 회원 수
+		model.addAttribute("members", listService.getMemberList());
+		model.addAttribute("memberCnt", listService.getmemberTotalCount());
 		
 		
-		return"member/list";
+		return "member/list";
 	}
 
 }

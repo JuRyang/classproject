@@ -26,7 +26,7 @@ public class FileUploadController {
 	
 	@RequestMapping("/upload/upload1")
 	public String upload1(
-			     @RequestParam("sn") String sn,
+			     @RequestParam("sn") String sn, /* RequestParam"sn"->파라미터 값으로 받아 찾는 것 변수명 별칭 */
 			     @RequestParam("report")MultipartFile report,
 			     Model model,
 			     HttpServletRequest request
