@@ -1,0 +1,45 @@
+스프링 프로젝트
+
+1. 스프링 프로젝트 생성: STS3
+ -Lagacy Project로 생성
+ - java 1.5 -> java 1.8
+ - Maven Project:pom.xml 설정 -> java version, spring version
+(스프링 파일 깃에서 다운 받고나서  반드시 기본 설정해야 함 다이나믹 버전 자바 버전 등등)
+
+2. 프로젝트에 필요한 라이브러리 의존
+
+ -spring MVC
+ -DB 관련
+ -파일업로드
+
+3. Spring 기본 설정
+
+ -DB: root-context.xml
+   1. dataSource : HikariCP
+   2. SqlSessionFactoryBean : MyBatis 설정, Mapper의 경로 설정 
+   3. SqlSessionTemplate
+ -FileUpload : suvlet-context.xml
+  MultipartResolver 등록 : 
+
+4. Spring MVC 모듈 이용 웹 페이지 정의 
+ - Controller 
+ - Service
+ - Dao
+4-1 회원가입
+-GET -> 입력폼이 화면에 표현
+ Controller, view
+-post -> 사용자 입력데이터 받고 Mybatis이용해서 insert
+-dao interface 이용해서 자동 매퍼 생성으로 이용
+4-2 로그인
+ -GET ->로그인 폼 Controller,view
+ -POST -> Cookie도 처리하기 위해서 request,response를 받아서 처리
+ 
+
+
+
+
+
+
+뷰의 코드는 브라켓이나 브이에스코드 (보기 쉬운 코드 치기 쉬운 프로그램에서 사용 가능)
+
+beans의 역할 : 사용자의 데이터를 담을 수도 데이터베이스에 정보를 담을 수도 있다.
