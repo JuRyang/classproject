@@ -20,9 +20,7 @@ public class MemberListView {
 		this.memberList = memberList;
 		this.startRow = startRow;
 		this.endRow = endRow;
-		calTotalPageCount(){
-			
-		}
+		calTotalPageCount();
 	}
 	private void calTotalPageCount() {
 		
