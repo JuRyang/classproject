@@ -57,7 +57,7 @@ h2.title {
 
 div.msg{
     color: mediumvioletred;
-    display: none;
+    display:  ;
 }
 
 table.table{
@@ -99,10 +99,12 @@ div.edit_div{
 }
 
 
+/*
 div.edit_div>div.edit_for_header{
     overflow:hidden;
     padding: 5px;
 }
+*/
 
 div.edit_div>div.edit_for_header>h2{
     float:left;
@@ -114,16 +116,6 @@ div.edit_div>div.edit_for_header>a{
 
 #editform{
     margin:10px;
-    
-}
-
-#editfor>table{
-    width:100%
-}
-
-#editform>table td{
-    padding: 5px;
-    text-align: center;
 }
 
 #editform input[type=submit]{
