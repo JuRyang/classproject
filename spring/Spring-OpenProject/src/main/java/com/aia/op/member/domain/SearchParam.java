@@ -7,7 +7,6 @@ public class SearchParam {
 	private String keyword;
 	
 	public SearchParam(int p, String serchType, String keyword) {
-		super();
 		this.p = p;
 		this.serchType = serchType;
 		this.keyword = keyword;

@@ -1,6 +1,8 @@
 package com.aia.op.member.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,22 +28,30 @@ public class MemberListService {
 		// MemberDao 구현체 생성
 		dao = template.getMapper(MemberDao.class);
 		
-		System.out.println("pageNumber : " + param.getP());
+		System.out.println("pageNumber : " + pageNumber);
 		
-		int totalMemberCount = dao.selectTotalCount();
-		System.out.println("memOberTotalCount : " + totalMemberCount);
 		
 		int cntPerPage = 5;
 		
-		int startRow = (param.getP()-1)*cntPerPage;
+		int startRow = (pageNumber-1)*cntPerPage;
 		int endRow = startRow+cntPerPage-1;
+		
+		Map<String, Object> listMap = new HashMap<String, Object>();
+		listMap.put("startRow", startRow);
+		listMap.put("cntPerPage",cntPerPage);
+		listMap.put("searchParam", param);
+		
+		int totalMemberCount = dao.selectTotalCount(listMap);
+		System.out.println("memberTotalCount : " + totalMemberCount);
+		
 		
 		List<Member> memberList = dao.selectMemberList(startRow, cntPerPage);
 		System.out.println(memberList);
 		
-		listView = new MemberListView(param.getP(), totalMemberCount, cntPerPage, memberList, startRow, endRow);
+		listView = new MemberListView(pageNumber, totalMemberCount, cntPerPage, memberList, startRow, endRow);
 		
-		}catch (Exception e) {
+		
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
