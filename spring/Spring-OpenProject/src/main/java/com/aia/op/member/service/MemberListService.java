@@ -26,20 +26,20 @@ public class MemberListService {
 		// MemberDao 구현체 생성
 		dao = template.getMapper(MemberDao.class);
 		
-		System.out.println("pageNumber : " + pageNumber);
+		System.out.println("pageNumber : " + param.getP());
 		
 		int totalMemberCount = dao.selectTotalCount();
-		System.out.println("memberTotalCount : " + totalMemberCount);
+		System.out.println("memOberTotalCount : " + totalMemberCount);
 		
 		int cntPerPage = 5;
 		
-		int startRow = (pageNumber-1)*cntPerPage;
+		int startRow = (param.getP()-1)*cntPerPage;
 		int endRow = startRow+cntPerPage-1;
 		
 		List<Member> memberList = dao.selectMemberList(startRow, cntPerPage);
 		System.out.println(memberList);
 		
-		listView = new MemberListView(pageNumber, totalMemberCount, cntPerPage, memberList, startRow, endRow);
+		listView = new MemberListView(param.getP(), totalMemberCount, cntPerPage, memberList, startRow, endRow);
 		
 		}catch (Exception e) {
 			e.printStackTrace();
