@@ -15,7 +15,7 @@ public class MemberListController {
 	@Autowired
 	private MemberListService listService;
 	
-	@RequestMapping("/member/list")  // /member/list?p -> 디폴트페이지를 1 로 정해주자
+	@RequestMapping("/member/list")  // /member/list?p=1 -> /member/list 디폴트페이지를 1 로 정해주자
 	public String memberList(
 			@RequestParam(value = "p", defaultValue="1") int page,
 			SearchParam param, 
@@ -26,7 +26,7 @@ public class MemberListController {
 		
 //		MemberListView listView = listService.getListView(page);
 //		System.out.println(listView);
-		model.addAttribute("listView", listService.getListView(param.getP()));
+		model.addAttribute("listView", listService.getListView(param));
 		
 		return "member/list";
 	}

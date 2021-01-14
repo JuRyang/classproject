@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<resultMap id="memberListResult"
-		type="com.aia.op.member.domain.Member">
+						 type="com.aia.op.member.domain.Member">
 		<id column="idx" property="idx" />
 		<result column="memberid" property="memberid" />
 		<result column="membername" property="membername" />
@@ -29,17 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertMember"
 		parameterType="com.aia.op.member.domain.Member">
 		INSERT INTO member
-		(memberid, password, membername,
-		memberphoto)
-		VALUES
-		(#{memberid},#{password},#{membername},#{memberphoto})
+		(memberid, password, membername, memberphoto)
+		VALUES (#{memberid},#{password},#{membername},#{memberphoto})
 	</insert>
 
 	<!-- 로그인 -->
 	<select id="selectLogin" resultMap="memberResult">
-
-		select * from member where
-		memberid=#{param1} and password=#{param2}
+		select * from member where memberid=#{param1} and password=#{param2}
 	</select>
 
 	<!-- 회원의 총 수 -->
@@ -48,72 +44,87 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		member
 	</select>
 
-	<select id="selectMemberList" resultMap="memberListResult">
+	<select id="selectMemberList"
+					parameterType="map"
+					resultMap="memberListResult">
 
-		select * from member
-		limit #{param1}, #{param2}
+		select * from member 
+		<where>
+			<if test="searchParam != null">
+				<if test="searchParam.searchType == 'id'">
+					<include refid="searchId"/>
+				</if>
+				<if test="searchParam.searchType == 'name'">
+					<include refid="searchName"/>
+				</if>
+				<if test="searchParam.searchType == 'both'">
+					<include refid="searchId"/>
+					<include refid="searchName"/>
+				</if>
+			</if>
+		</where>
+		
+		
+		limit #{index}, #{count}
 
 	</select>
-
-	<select id="selectSearchMemberCount"
-		parameterType="com.aia.op.member.domain.SearchParam">
-
+	
+	<select id="selectSearchMemberCount" 
+	        parameterType="com.aia.op.member.domain.SearchParam"
+	        resultType="int"
+	        >
+	        
 		select count(*) from member
-		<where>
-		  
-		   <if test="searchParam.searchType == 'id'">
-		     <include refid="searchId"/>
-		   </if>
-		   <if test="searchParam.searchType == 'name'">
-		     <include refid="searchname"/>
-		   </if>
-		   <if test="searchParam.searchType == 'both'">
-		     <include refid="searchid"/>
-		     <include refid="searchname"/>
-		   </if>
-		</where>
-
-		<!-- where idx > 0 -->
-
+		
+		<!-- where idx>0  -->
+		
 		<where>
 			<if test="searchParam.searchType == 'id'">
-				<!-- memberid like concat('%',#{keyword},'%') -->
-				<include refid="searchId" />
+				  <!-- memberid like	concat('%',#{keyword},'%') -->
+				  <include refid="searchId"/>
 			</if>
+			
 			<if test="searchParam.searchType == 'name'">
-				<!-- membername like concat('%',#{keyword},'%') -->
-				<include refid="searchname" />
+				 <!-- membername like	concat('%',#{keyword},'%') -->
+				 <include refid="searchName"/>
 			</if>
+			
 			<if test="searchParam.searchType == 'both'">
-				<!-- membername like concat('%',#{keyword},'%') or memberid like concat('%',#{keyword},'%') -->
-
-				<include refid="searchId" />
-				<include refid="searchname" />
-
+				 <!-- membername like	concat('%',#{keyword},'%') 				 
+				 or 
+				 memberid like	concat('%',#{keyword},'%') --> 
+				 <include refid="searchId"/>
+				 <include refid="searchName"/>
 			</if>
 		</where>
-
-
+		
+		<!-- <if test="searchType == 'id'">
+			where memberid like	concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'name'">
+			where membername like	concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'both'">
+			where membername like	concat('%',#{keyword},'%') or memberid like	concat('%',#{keyword},'%')
+		</if> -->
+		
+	
 	</select>
 
 	<sql id="searchId">
-		memberid like concat('%',#{searchParam.keyword},'%')
+		or memberid like	concat('%',#{searchParam.keyword},'%')
 	</sql>
-
+	
 	<sql id="searchName">
-		membername like concat('%',#{searchParam.keyword},'%')
+	  or membername like	concat('%',#{searchParam.keyword},'%')
 	</sql>
+	
 
-	<sql id="searchBoth">
-		membername like concat('%',#{searchParam.keyword},'%')
-		or
-		memberid like concat('%',#{searchParam.keyword},'%')
-	</sql>
+	<delete id="deleteMemberByIdx">
+		delete from member where idx=#{idx}
+	</delete>
 
 
-   <delete id="deleteMemberByIdx">
-     delete from member where idx=#{idx}
-   </delete>
 
 
 

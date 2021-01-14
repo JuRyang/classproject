@@ -1,24 +1,24 @@
 package com.aia.op.member.domain;
 
 public class SearchParam {
-	
+
 	private int p;
-	private String serchType;
+	private String searchType;
 	private String keyword;
-	
-	public SearchParam(int p, String serchType, String keyword) {
+
+	public SearchParam(int p, String searchType, String keyword) {
 		this.p = p;
-		this.serchType = serchType;
+		this.searchType = searchType;
 		this.keyword = keyword;
 		
-		if(this.p < 1) {
+		if(this.p<1) {
 			this.p = 1;
-			
 		}
+		
 	}
-	
+
 	public SearchParam() {
-		this.p = 1;
+		this.p=1;
 	}
 
 	public int getP() {
@@ -29,12 +29,12 @@ public class SearchParam {
 		this.p = p;
 	}
 
-	public String getSerchType() {
-		return serchType;
+	public String getSearchType() {
+		return searchType;
 	}
 
-	public void setSerchType(String serchType) {
-		this.serchType = serchType;
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
 	}
 
 	public String getKeyword() {
@@ -47,10 +47,8 @@ public class SearchParam {
 
 	@Override
 	public String toString() {
-		return "SearchParam [p=" + p + ", serchType=" + serchType + ", keyword=" + keyword + "]";
+		return "SearchParam [p=" + p + ", searchType=" + searchType + ", keyword=" + keyword + "]";
 	}
-	
-	
 	
 	
 
