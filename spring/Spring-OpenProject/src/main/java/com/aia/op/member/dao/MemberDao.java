@@ -21,6 +21,7 @@ public interface MemberDao {
 	
 	//검색한 회원의 수
 	int selectSearchMemberCount(SearchParam param);
+	int deleteMemberByIdx(int idx);
 
 }
 

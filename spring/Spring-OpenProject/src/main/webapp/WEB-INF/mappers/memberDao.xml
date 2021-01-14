@@ -107,11 +107,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="searchBoth">
 		membername like concat('%',#{searchParam.keyword},'%')
 		or
-		memberid like
-		concat('%',#{searchParam.keyword},'%')
+		memberid like concat('%',#{searchParam.keyword},'%')
 	</sql>
 
 
+   <delete id="deleteMemberByIdx">
+     delete from member where idx=#{idx}
+   </delete>
 
 
 
