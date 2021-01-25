@@ -14,13 +14,13 @@ import com.aia.firstspring.member.domain.Member;
 @Service
 public class MemberListService {
 	
-//	@Autowired
+//	@Autowired    //JDBC
 //	MemberDao dao;
 	
-	// @Autowired
+	// @Autowired   //MyBatis
 	// private MybatisMemberDao dao; 
 	
-	private MemberInterfaceDao dao;
+	private MemberInterfaceDao dao;  //인터페이스
 	
 	@Autowired
 	private SqlSessionTemplate template;

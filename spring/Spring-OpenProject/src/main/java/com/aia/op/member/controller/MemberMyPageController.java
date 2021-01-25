@@ -15,6 +15,7 @@ public class MemberMyPageController {
 	
 	@RequestMapping("/mypage2")  // /op/mypage/mypage2
 	  public String myPage2() {
+		
 		  return"member/mypage";
 	  }
 	

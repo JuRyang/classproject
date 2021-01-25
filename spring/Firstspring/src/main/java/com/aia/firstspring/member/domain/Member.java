@@ -49,7 +49,7 @@ public class Member {
 	}
 	
 	public Date getTODate() {  //${member.date}
-		return new Date(getRegdate().getTime());
+		return getRegdate() ==null ? null : new Date(getRegdate().getTime());
 	}
 	
 	@Override

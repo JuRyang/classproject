@@ -11,4 +11,6 @@ public interface MemberInterfaceDao {
 	int insertMember(Member member);
 	int totalCnt();
 	Member selectByIdPw();
+	Member selectByIdx();
+	Member selectByIdx(int idx);
 }

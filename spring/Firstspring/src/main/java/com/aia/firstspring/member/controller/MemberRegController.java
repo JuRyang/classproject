@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aia.firstspring.Util.Sha256;
 import com.aia.firstspring.member.domain.Member;
 import com.aia.firstspring.member.service.MemberRegService;
 
@@ -16,6 +17,8 @@ public class MemberRegController {
 	@Autowired
 	private MemberRegService regService;
 	
+
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getRegForm() {
 		return "member/regForm";
@@ -25,7 +28,11 @@ public class MemberRegController {
 	public String memberReg(Member member, Model model) {
 		
 		System.out.println(member);
-		int resultCnt = regService.insertMember(member);
+		//int resultCnt = regService.insertMember(member);
+		int resultCnt = 0;
+		
+		
+
 		
 		System.out.println(member);
 		
