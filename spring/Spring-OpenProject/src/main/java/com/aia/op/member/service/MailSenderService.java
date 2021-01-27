@@ -39,7 +39,7 @@ public class MailSenderService {
 			message.setText(html, "utf-8", "html");
 			
 			// from 설정
-			message.setFrom(new InternetAddress("aiahan1040@gmail.com"));
+			message.setFrom(new InternetAddress("wnfid1040@gmail.com"));
 			
 			// to 설정
 			message.addRecipient(RecipientType.TO, new InternetAddress(member.getMemberid(), member.getMembername()+" 님", "UTF-8"));
@@ -58,3 +58,11 @@ public class MailSenderService {
 	}
 
 }
+
+
+
+
+
+
+
+
