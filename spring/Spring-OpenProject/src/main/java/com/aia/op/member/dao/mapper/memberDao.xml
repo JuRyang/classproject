@@ -26,6 +26,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 
+	<select id="selectAllMemberList"
+					resultMap="memberListResult"
+	>
+		select * from member
+	</select>
+
 
 	<!-- 회원가입 -->
 	<insert id="insertMember"
@@ -33,24 +39,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		useGeneratedKeys="true"
 		keyProperty="idx"
 		>
+		
 		INSERT INTO member
 		
+		
 		<!-- 인증을 위해 code 컬럼 추가 -->
-		<if test="memberphoto == null ">
-		(memberid, password, membername , code)
-		VALUES (#{memberid},#{password},#{membername},#{code})
+		<if test="memberphoto == null">		
+		(memberid, password, membername, code)
+		VALUES 
+		(#{memberid},#{password},#{membername}, #{code})
 		</if>
 		
-		<if test="memberphoto != null ">
+		<if test="memberphoto != null">
 		(memberid, password, membername, memberphoto, code)
-		VALUES (#{memberid},#{password},#{membername},#{memberphoto},#{code})
+		VALUES 
+		(#{memberid},#{password},#{membername},#{memberphoto}, #{code})
 		</if>
-
+		
 	</insert>
 	
-
-
-
+	
+	<!-- member_count update -->
+	<update id="memberCountUpdate">
+		update member_count set membercount = membercount+1 
+	</update>
+	
+	
+	
 
 	<!-- 로그인 -->
 	<select id="selectLogin" resultMap="memberResult">
@@ -143,40 +158,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from member where idx=#{idx}
 	</delete>
 
-   <select id="selectMemberByIdx"
-           resultMap="memberResult">
-           
-           select * from member where idx=#{idx} <!--memberDao.java에 idx변수를 쓰는거 아님 #{아무이름}  -->
 
-   </select>
-   
-   <update id="updateMember"
-           parameterType="com.aia.op.member.domain.Member">
-   
-     update member 
-     set membername=#{membername}, password=#{password}, memberphoto=#{memberphoto}
-     where idx=#{idx}
-   
-   </update>
-
-   <select id="selectMemberByIdCount"
-           resultType="int">
-           select count(*) from member where memberid = #{id}
-   </select>
-   
-   <select id="selectMemberByIdxVerify"
-           resultType="int">
-     select count(*) from member where idx = #{idx} and verify='Y'
-   </select>
-   
-   <update id="updateMemberVerify">
-     update member set verify='Y' where idx=#{param1} and code=#{param2}
-   </update>
+	<select id="selectMemberByIdx"
+	        resultMap="memberListResult">
+		
+		select * from member where idx=#{no}
+		
+	</select>
 
 
 
+	<update id="updateMember"
+					parameterType="com.aia.op.member.domain.Member">
+	
+		update member 
+		set membername=#{membername}, 
+				password=#{password}, 
+				memberphoto=#{memberphoto}
+		where idx=#{idx}  
+	
+	</update>
 
 
+	<select id="selectMemberByIdCount"
+					resultType="int"
+	>
+	select count(*) from member where memberid=#{id}
+	</select>
+	
+	<select id="selectMemberByIdxVerify"
+					resultType="int"
+	>
+		select count(*) from member where idx=#{idx} and verify='Y'
+	</select>
+	
+	<update id="updateMemberVerify">
+		update member set verify='Y' where idx=#{param1} and code=#{param2}
+	</update>
 
 
 
