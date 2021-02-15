@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<!-- 회원가입 -->
-	<insert id="insertMember"
+	<insert id="inserMember"
 		parameterType="com.aia.op.member.domain.Member"
 		useGeneratedKeys="true"
 		keyProperty="idx"

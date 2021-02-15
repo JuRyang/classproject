@@ -11,6 +11,7 @@ public class MemberListView {
 	private int startRow;
 	private int endRow;
 	private int totalPageCount; //전체 페이지의 개수 
+	
 	public MemberListView(int pageNumber, int totalMemberCount, int cntPerPage, List<Member> memberList, int startRow,
 			int endRow) {
 		

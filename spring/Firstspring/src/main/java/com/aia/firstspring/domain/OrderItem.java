@@ -5,6 +5,8 @@ public class OrderItem {
 	private String itemId;
 	private int number;
 	private String remark;
+	
+	
 	public String getItemId() {
 		return itemId;
 	}

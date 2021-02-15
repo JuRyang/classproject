@@ -30,7 +30,7 @@ public class MemberMyPageController {
 	
 
 	@ExceptionHandler(NullPointerException.class)
-	public String handleNullPointerException(NullPointerException e) {
+	public String handleNullPointerExceptidon(NullPointerException e) {
 		e.printStackTrace();
 		return "error/nullPointer";
 	}
