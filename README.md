@@ -8,3 +8,4 @@
 * Oracle, MySql
 * 웹 표준 : HTML5, CSS3, JavaScript, jQuery,
 * Front Framework
+* Python
