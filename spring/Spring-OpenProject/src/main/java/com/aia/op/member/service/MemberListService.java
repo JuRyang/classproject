@@ -49,7 +49,7 @@ public class MemberListService {
 			System.out.println("memberTotalCount : " + totalMemberCount);
 
 			List<Member> memberList = dao.selectMemberList(listMap);
-			System.out.println(memberList);
+			System.out.println("memberList!!!"+memberList);
 
 			listView = new MemberListView(param.getP(), totalMemberCount, cntPerPage, memberList, startRow, endRow);
 

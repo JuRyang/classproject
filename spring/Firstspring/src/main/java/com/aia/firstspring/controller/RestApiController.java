@@ -54,6 +54,7 @@ public class RestApiController {
 		// 배열 콜렉션(요소의 개수만큼 반복, 선택적?)
 		for (Member member : listService.getMemberList()) {
 			memberMap.put(member.getIdx(), member);
+			
 		}
 		
 		return memberMap; //원본
