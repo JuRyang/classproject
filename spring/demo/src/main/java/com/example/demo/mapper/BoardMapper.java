@@ -45,6 +45,7 @@ public interface BoardMapper {
 	int deleteBoard(int idx);
 	
 	
+	
 
 	
 	

@@ -1,8 +1,11 @@
 package com.example.demo.model;
 
+import org.springframework.stereotype.Repository;
+
 import lombok.Data;
 
 @Data
+@Repository
 public class EditRequest {
 	
 	private int idx;  // 인덱스

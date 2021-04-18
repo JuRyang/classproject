@@ -20,5 +20,6 @@
     </typeAliases>
     <mappers>
 		<mapper resource="mybatis/BoardMapper.xml"/>
+		<mapper resource="mybatis/CommentMapper.xml"/>
     </mappers>
 </configuration>

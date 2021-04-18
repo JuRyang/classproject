@@ -46,7 +46,7 @@ public class BoardService {
 	}
 
 	// 글 수정
-	public int updateBoard(int idx, Board board) {
+	public int updateBoard(Board board) {
 		return boardMapper.updateBoard(board);
 	}
 
@@ -61,5 +61,6 @@ public class BoardService {
 
 		return boardMapper.selectBoardDetail(idx);
 	}
+
 
 }

@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.model.Board;
 import com.example.demo.model.UploadRequest;
 import com.example.demo.service.BoardService;
-import com.example.demo.service.BoardUploadService;
+
+import lombok.Value;
 
 @RequestMapping("/board")
 @Controller
@@ -118,26 +117,45 @@ public class BoardController {
 	}
 	
 	
+	// 게시글 수정
+		@RequestMapping(value = "/editForm", method = RequestMethod.GET)
+		public String updateView(@RequestParam(value = "idx", required = false)  int idx, Model model) {
+
+			Board board = listService.getBoardDetail(idx);
+
+			model.addAttribute("board", board);
+
+			return "view/board/editForm";
+		}
+	
 
 	// 게시글 수정
-	@RequestMapping(value = "/edit/{idx}", method = RequestMethod.POST)
-	public String boardEdit(@PathVariable("idx") int idx, Board board, Model model) {
+	@RequestMapping(value = "/editForm", method = RequestMethod.POST)
+	public String updateBoard(@RequestParam(value = "idx", required = false)  int idx, Board board, Model model) {
 
-		int result = listService.updateBoard(idx, board);
+		int result = listService.updateBoard(board);
 
 		model.addAttribute("result", result);
 
-		return "board/result";
+		return "view/board/editForm";
 	}
 
 	// 게시물 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String boardDelete(@RequestParam(value = "idx") int idx) {
+	public String deleteBoard(@RequestParam(value = "idx") int idx, Model model) {
 
 		int result = listService.deleteBoard(idx);
+		
+		
+		model.addAttribute("result", result);
 
 
+		//return "redirect:/board/index";
 		return "redirect:/board/index";
 	}
+	
+   
+
+
 
 }
